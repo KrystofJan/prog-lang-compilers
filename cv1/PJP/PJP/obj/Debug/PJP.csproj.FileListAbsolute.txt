@@ -1,0 +1,11 @@
+C:\Users\zahry\pjp\cv1\PJP\PJP\bin\Debug\PJP.exe
+C:\Users\zahry\pjp\cv1\PJP\PJP\bin\Debug\PJP.pdb
+C:\Users\zahry\pjp\cv1\PJP\PJP\bin\Debug\OperationTree.dll
+C:\Users\zahry\pjp\cv1\PJP\PJP\bin\Debug\TokenBuilder.dll
+C:\Users\zahry\pjp\cv1\PJP\PJP\bin\Debug\OperationTree.pdb
+C:\Users\zahry\pjp\cv1\PJP\PJP\bin\Debug\TokenBuilder.pdb
+C:\Users\zahry\pjp\cv1\PJP\PJP\obj\Debug\PJP.csproj.AssemblyReference.cache
+C:\Users\zahry\pjp\cv1\PJP\PJP\obj\Debug\PJP.csproj.CoreCompileInputs.cache
+C:\Users\zahry\pjp\cv1\PJP\PJP\obj\Debug\PJP.csproj.CopyComplete
+C:\Users\zahry\pjp\cv1\PJP\PJP\obj\Debug\PJP.exe
+C:\Users\zahry\pjp\cv1\PJP\PJP\obj\Debug\PJP.pdb

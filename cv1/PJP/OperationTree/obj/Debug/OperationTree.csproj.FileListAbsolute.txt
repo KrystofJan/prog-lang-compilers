@@ -1,0 +1,9 @@
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\bin\Debug\OperationTree.dll
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\bin\Debug\OperationTree.pdb
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\obj\Debug\OperationTree.csproj.AssemblyReference.cache
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\obj\Debug\OperationTree.csproj.CoreCompileInputs.cache
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\obj\Debug\OperationTree.dll
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\obj\Debug\OperationTree.pdb
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\bin\Debug\TokenBuilder.dll
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\bin\Debug\TokenBuilder.pdb
+C:\Users\zahry\pjp\cv1\PJP\OperationTree\obj\Debug\OperationTree.csproj.CopyComplete

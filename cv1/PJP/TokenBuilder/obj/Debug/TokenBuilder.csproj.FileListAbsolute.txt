@@ -1,0 +1,6 @@
+C:\Users\zahry\pjp\cv1\PJP\TokenBuilder\bin\Debug\TokenBuilder.dll
+C:\Users\zahry\pjp\cv1\PJP\TokenBuilder\bin\Debug\TokenBuilder.pdb
+C:\Users\zahry\pjp\cv1\PJP\TokenBuilder\obj\Debug\TokenBuilder.csproj.AssemblyReference.cache
+C:\Users\zahry\pjp\cv1\PJP\TokenBuilder\obj\Debug\TokenBuilder.csproj.CoreCompileInputs.cache
+C:\Users\zahry\pjp\cv1\PJP\TokenBuilder\obj\Debug\TokenBuilder.dll
+C:\Users\zahry\pjp\cv1\PJP\TokenBuilder\obj\Debug\TokenBuilder.pdb
