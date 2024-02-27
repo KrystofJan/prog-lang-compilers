@@ -1,0 +1,12 @@
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\bin\Debug\net8.0\Tokenizer.deps.json
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\bin\Debug\net8.0\Tokenizer.dll
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\bin\Debug\net8.0\Tokenizer.pdb
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\Tokenizer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\Tokenizer.AssemblyInfoInputs.cache
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\Tokenizer.AssemblyInfo.cs
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\Tokenizer.csproj.CoreCompileInputs.cache
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\Tokenizer.sourcelink.json
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\Tokenizer.dll
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\refint\Tokenizer.dll
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\Tokenizer.pdb
+C:\Users\zahry\pjp\cv2\Tokens\Tokenizer\obj\Debug\net8.0\ref\Tokenizer.dll

@@ -112,6 +112,9 @@ namespace OperationTree {
 				case TokenType.LPAR: {
 					MoveToNextToken();
 					result = CalculateExpression();
+					if (CurrentToken.Type != TokenType.RPAR) {
+						throw new Exception("Unclosed par");
+					}
 					MoveToNextToken();
 					break;
 				}
