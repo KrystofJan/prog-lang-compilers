@@ -13,8 +13,12 @@ public class Token<T> {
 	private ITokenValue _value;
 	public T Value { get => _value.GetValue<T>(); }
 
-	public Token(TokenType type, ITokenValue val) {
-		Type = type;
+	public Token(ITokenValue val) {
+		Type = val.Type;
 		_value = val;
+	}
+
+	public override string ToString() {
+		return _value.ToString();
 	}
 }

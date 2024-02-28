@@ -8,18 +8,15 @@
     ".NETCoreApp,Version=v8.0": {
       "Tokens/1.0.0": {
         "dependencies": {
-          "Tokenizer": "1.0.0.0"
+          "Tokenizer": "1.0.0"
         },
         "runtime": {
           "Tokens.dll": {}
         }
       },
-      "Tokenizer/1.0.0.0": {
+      "Tokenizer/1.0.0": {
         "runtime": {
-          "Tokenizer.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Tokenizer.dll": {}
         }
       }
     }
@@ -30,8 +27,8 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Tokenizer/1.0.0.0": {
-      "type": "reference",
+    "Tokenizer/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }
