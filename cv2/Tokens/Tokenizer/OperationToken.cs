@@ -7,7 +7,7 @@ public enum OperatorTokenType {
 	MINUS
 }
 
-public class OperationToken : ITokenValue {
+public class OperationToken : IToken<OperatorTokenType> {
 	public OperatorTokenType Value { get; set; }	
 	public TokenType Type { get;}
 
@@ -17,9 +17,6 @@ public class OperationToken : ITokenValue {
 		Value = value;
 	}
 	
-	public T GetValue<T>() {
-		return (T)(object)Value;
-	}
 	public override string ToString() {
 		return $"{Value.ToString()}";
 	}

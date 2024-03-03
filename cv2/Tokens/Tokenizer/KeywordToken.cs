@@ -5,17 +5,13 @@ public enum KeywordTokenValues {
 	DIV
 }
 
-public class KeywordToken : ITokenValue{
+public class KeywordToken : IToken<KeywordTokenValues> {
 	public KeywordTokenValues Value { get; set; }
 	public TokenType Type { get; }
 	
 	public KeywordToken(KeywordTokenValues value) {
 		Type = TokenType.KEYWORD;
 		Value = value;
-	}
-	
-	public T GetValue<T>() {
-		return (T)(object)Value;
 	}
 	
 	public override string ToString() {

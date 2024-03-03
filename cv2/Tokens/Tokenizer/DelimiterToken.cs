@@ -6,7 +6,7 @@ public enum DelimiterTokenType {
 	SEM
 }
 
-public class DelimiterToken : ITokenValue{
+public class DelimiterToken : IToken<DelimiterTokenType> {
 	public TokenType Type { get;}
 	// public Type ValueType { get => typeof(DelimiterTokenType); }
 	public DelimiterTokenType Value { get; set; }
@@ -14,13 +14,6 @@ public class DelimiterToken : ITokenValue{
 	public DelimiterToken(DelimiterTokenType value) {
 		Type = TokenType.DELIMITER;
 		Value = value;
-	}
-
-	// public ValueType GetValue() {
-	// 	return Value;
-	// }
-	public T GetValue<T>() {
-		return (T)(object)Value;
 	}
 
 	public override string ToString() {

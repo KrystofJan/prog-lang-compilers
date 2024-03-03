@@ -1,17 +1,13 @@
 namespace Tokenizer;
 
-public class IdentifierToken : ITokenValue {
+public class IdentifierToken : IToken<string> {
 
 	public TokenType Type { get; }
 	public string Value { get; }
 
-	public IdentifierToken(string val) {
+	public IdentifierToken(string value) {
 		Type = TokenType.ID;
-		Value = val;
-	} 
-	
-	public T GetValue<T>() {
-		return (T)(object)Value;
+		Value = value;
 	}
 	
 	public override string ToString() {

@@ -4,13 +4,13 @@ namespace Tokenizer;
 public class Lexer {
 	private string Expression { get; set; }
 
-	private List<Token<object>> _tokens = new List<Token<object>>();
+	private List<IToken> _tokens = new List<IToken>();
 
 	public Lexer(string exp) {
 		Expression = Regex.Replace(exp, @"[ \t]+", " ").Trim();
 	}
 
-	public List<Token<object>> Parse() {
+	public List<IToken> Parse() {
 		string[] expressionParts = Expression.Split(Environment.NewLine);
 		for (int i = 0; i < expressionParts.Length; i++) {
 			for (int j = 0; j < expressionParts[i].Length; j++) {
@@ -19,18 +19,20 @@ public class Lexer {
 						break;
 					}
                 	case '(': {
-                		_tokens.Add(new Token<object>(
-                			val: new DelimiterToken(DelimiterTokenType.LPAR)));
+                		_tokens.Add(new DelimiterToken(
+                			value: DelimiterTokenType.LPAR
+			            ));
                 		break;
                 	}
                 	case ')': {
-                		_tokens.Add(new Token<object>(
-                			val: new DelimiterToken(DelimiterTokenType.RPAR)));
+                		_tokens.Add(new DelimiterToken(
+                			value: DelimiterTokenType.RPAR
+			            ));
                 		break;
                 	}
                 	case ';': {
-                		_tokens.Add(new Token<object>(
-                			val: new DelimiterToken(DelimiterTokenType.SEM)));
+                		_tokens.Add(new DelimiterToken(
+                			value: DelimiterTokenType.SEM));
                 		break;
                 	}
                 	case '/': {
@@ -38,27 +40,27 @@ public class Lexer {
 			                j = expressionParts[i].Length;
 			                break;
 		                }
-                		_tokens.Add(new Token<object>(
-                			val: new OperationToken(OperatorTokenType.DEVIDE)
-                			));
+                		_tokens.Add(new OperationToken(
+                			value: OperatorTokenType.DEVIDE
+                		));
                 		break;
                 	}
                 	case '*': {
-                		_tokens.Add(new Token<object>(
-                			val: new OperationToken(OperatorTokenType.MULTIPLY)
+                		_tokens.Add(new OperationToken(
+                			value: OperatorTokenType.MULTIPLY
                 		));
                 		break;
                 	}
                 	case '+': {
-                		_tokens.Add(new Token<object>(
-                			val: new OperationToken(OperatorTokenType.PLUS)
+                		_tokens.Add(new OperationToken(
+                			value: OperatorTokenType.PLUS
                 		));
                 		break;
                 	}
                 	case '-': {
-                		_tokens.Add(new Token<object>(
-                			val: new OperationToken(OperatorTokenType.MINUS)
-                		));
+						_tokens.Add(new OperationToken(
+							value: OperatorTokenType.MINUS
+						));
                 		break;
                 	}
 	                default: {
@@ -82,7 +84,7 @@ public class Lexer {
 		return true;
 	}
 
-	private Token<object> GenerateNumberToken(string currentPart, ref int index) {
+	private IToken GenerateNumberToken(string currentPart, ref int index) {
 		string value = "";
 		while (char.IsDigit(currentPart[index])) {
 			value += currentPart[index];
@@ -98,8 +100,8 @@ public class Lexer {
 			throw new Exception($"Cannot convert {value} to integer!");
 		}
 
-		return new Token<object>(
-			val: new NumberToken(number)
+		return new NumberToken(
+			value: number
 		);
 	}
 
@@ -114,20 +116,20 @@ public class Lexer {
 		
 		switch (keyword) {
 			case "div": {
-				_tokens.Add(new Token<object>(
-					val: new KeywordToken(KeywordTokenValues.DIV)
-					));
+				_tokens.Add(new KeywordToken(
+					value: KeywordTokenValues.DIV
+				));
 				break;
 			}
 			case "mod": {
-				_tokens.Add(new Token<object>(
-					val: new KeywordToken(KeywordTokenValues.MOD)
+				_tokens.Add(new KeywordToken(
+					value: KeywordTokenValues.MOD
 				));
 				break;
 			}
 			default: {
-				_tokens.Add(new Token<object>(
-					val: new IdentifierToken(keyword)
+				_tokens.Add(new IdentifierToken(
+					value: keyword
 				));
 				break;
 			}
