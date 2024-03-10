@@ -1,0 +1,16 @@
+/home/zahry/Documents/Grammar/Grammar/bin/Debug/net5.0/G1.TXT
+/home/zahry/Documents/Grammar/Grammar/bin/Debug/net5.0/Grammar
+/home/zahry/Documents/Grammar/Grammar/bin/Debug/net5.0/Grammar.deps.json
+/home/zahry/Documents/Grammar/Grammar/bin/Debug/net5.0/Grammar.runtimeconfig.json
+/home/zahry/Documents/Grammar/Grammar/bin/Debug/net5.0/Grammar.runtimeconfig.dev.json
+/home/zahry/Documents/Grammar/Grammar/bin/Debug/net5.0/Grammar.dll
+/home/zahry/Documents/Grammar/Grammar/bin/Debug/net5.0/Grammar.pdb
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/Grammar.GeneratedMSBuildEditorConfig.editorconfig
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/Grammar.AssemblyInfoInputs.cache
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/Grammar.AssemblyInfo.cs
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/Grammar.csproj.CoreCompileInputs.cache
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/Grammar.dll
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/refint/Grammar.dll
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/Grammar.pdb
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/Grammar.genruntimeconfig.cache
+/home/zahry/Documents/Grammar/Grammar/obj/Debug/net5.0/ref/Grammar.dll
