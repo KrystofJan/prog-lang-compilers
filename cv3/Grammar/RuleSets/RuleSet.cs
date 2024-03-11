@@ -3,7 +3,7 @@ using System.Text;
 using Grammar;
 namespace RuleSets;
 
-public abstract class RuleSet : IRuleSet {
+public abstract class RuleSet {
 
 	public Rule Rule { get; set; }
 

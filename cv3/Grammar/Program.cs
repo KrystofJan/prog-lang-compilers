@@ -29,15 +29,12 @@ namespace Lab3
 				grammar.dump();
 			
 				GrammarOps gr = new GrammarOps(grammar);
-			
-				// First step, computes nonterminals that can be rewritten as empty word
-				// foreach (Nonterminal nt in gr.EmptyNonterminals)
-				// {
-				// 	Console.Write(nt.Name + " ");
-				// }
+
 				foreach (var term in gr.First) {
 					Console.WriteLine(term.ToString());
 				}
+				FollowRuleSet followRuleSet = new FollowRuleSet(gr.Follow);
+				Console.WriteLine(followRuleSet.ToString());
 			}
 			catch (GrammarException e)
 			{

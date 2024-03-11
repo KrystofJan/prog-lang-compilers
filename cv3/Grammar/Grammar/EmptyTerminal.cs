@@ -1,6 +1,6 @@
 namespace Grammar;
 
-public class EmptyTerminal : Symbol {
+public class EmptyTerminal : Terminal {
 	public EmptyTerminal() : base("epsilon") {
 	}
 }
