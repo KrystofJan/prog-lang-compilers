@@ -8,9 +8,8 @@ namespace Lab3;
 
 public class GrammarOps {
 	private IGrammar g;
-	private EmptyTerminal Epsilon = new EmptyTerminal(); 
+	private EmptyTerminal Epsilon = new EmptyTerminal(); // change to singleton 
 	private ISet<Nonterminal> EmptyNonterminals { get; } = new HashSet<Nonterminal>();
-	public int CurrentFollowNonTerminal { get; set; }
 	private ISet<Rule> VisitedRules { get; } = new HashSet<Rule>();
 	private ISet<Nonterminal> VisitedFollows { get; } = new HashSet<Nonterminal>();
 	public ISet<FirstRuleSet> First { get; } = new HashSet<FirstRuleSet>();
@@ -21,7 +20,6 @@ public class GrammarOps {
 	
 	public GrammarOps(IGrammar g) {
 		this.g = g;
-		CurrentFollowNonTerminal = 0;
 		
 		foreach (var rule in g.Rules) {
 			if (!Follow.ContainsKey(rule.LHS)) {
@@ -121,7 +119,7 @@ public class GrammarOps {
 		if (VisitedFollows.Contains(currentSymbol)) {
 			return;
 		}
-		VisitedFollows.Add(currentSymbol);
+
 		foreach (var rule in rules) {
 			if (!rule.RHS.Contains(currentSymbol)) {
 				continue;
@@ -148,5 +146,7 @@ public class GrammarOps {
 				Follow[currentSymbol].Add(symbol);
 			}
 		}
+
+		VisitedFollows.Add(currentSymbol);
 	}
 }

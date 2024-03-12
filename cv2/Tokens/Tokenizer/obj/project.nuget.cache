@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6hJkIOfwP2mwHpge6+6h/cm9zPIZKSUjG25mGE+oOmQZrHoaCS/s4qC/lDBeca1osr28rGTcaHO1x83653gcyQ==",
+  "dgSpecHash": "o8mpbwJXAwigHVN77dOEcNk0aQSuJctL6p8Gi/gj4VdoxXW79cv1V7HNfFPQF/FODYwYmlmWzbJdTOkHFK+ocQ==",
   "success": true,
-  "projectFilePath": "/home/zahry/school/pjp/cv2/Tokens/Tokenizer/Tokenizer.csproj",
+  "projectFilePath": "C:\\Users\\zahry\\pjp\\cv2\\Tokens\\Tokenizer\\Tokenizer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

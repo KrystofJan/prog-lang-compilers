@@ -5,7 +5,6 @@ using Grammar;
 namespace RuleSets;
 
 public class FirstRuleSet : RuleSet {
-	public FirstRuleSet(Rule rule, ISet<Symbol> symbolSet) : base(rule, symbolSet, "First" ) {
-		
+	public FirstRuleSet(Rule rule, ISet<Symbol> symbolSet) : base(rule, symbolSet, "First" ){
 	}
 }

@@ -7,7 +7,7 @@ public class Lexer {
 	private List<IToken> _tokens = new List<IToken>();
 
 	public Lexer(string exp) {
-		Expression = Regex.Replace(exp, @"[ \t]+", " ").Trim();
+		Expression = exp; //  Regex.Replace(exp, @"[ \t]+", " ").Trim();
 	}
 
 	public List<IToken> Parse() {
@@ -16,6 +16,9 @@ public class Lexer {
 			for (int j = 0; j < expressionParts[i].Length; j++) {
 				switch (expressionParts[i][j]) {
 					case ' ': {
+						break;
+					}					
+					case '\t': {
 						break;
 					}
                 	case '(': {
