@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj": {}
+  },
+  "projects": {
+    "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj",
+        "projectName": "Grammar",
+        "projectPath": "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj",
+        "packagesPath": "/home/zahry/.nuget/packages/",
+        "outputPath": "/home/zahry/school/pjp/cv4/Grammar/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/zahry/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/zahry/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
