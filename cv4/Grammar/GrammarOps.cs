@@ -16,6 +16,7 @@ public class GrammarOps {
 	public FollowRuleSet Follow { get; }
 	
 	private ISet<Nonterminal> EmptyNonterminals { get; } = new HashSet<Nonterminal>();
+	private ISet<Rule> EmptyRules { get; } = new HashSet<Rule>();
 	public int CurrentFollowNonTerminal { get; set; }
 	private ISet<Rule> VisitedRules { get; } = new HashSet<Rule>();
 	private ISet<Nonterminal> VisitedFollows { get; } = new HashSet<Nonterminal>();
@@ -34,6 +35,7 @@ public class GrammarOps {
 			}
 		}
 		FollowDictionary[FollowDictionary.Keys.First()].Add(Epsilon);
+		
 		ComputeFirst();
 
 		foreach (FirstRuleSet first in First) {
@@ -52,6 +54,7 @@ public class GrammarOps {
 		foreach (var rule in g.Rules) {
 			if (rule.RHS.Count == 0) {
 				EmptyNonterminals.Add(rule.LHS);
+				EmptyRules.Add(rule);
 			}
 		}
 
@@ -61,40 +64,43 @@ public class GrammarOps {
 			foreach (var rule in g.Rules) {
 				if (rule.RHS.All(x => x is Nonterminal && EmptyNonterminals.Contains(x))) {
 					EmptyNonterminals.Add(rule.LHS);
+					EmptyRules.Add(rule);
 					VisitedRules.Add(rule);
 				}
 			}
 		} while (count != EmptyNonterminals.Count);
 	}
 	private void ComputeFirstTerminal() {
-		foreach (var rule in g.Rules) {
-			VisitedRules.Clear();
+		foreach (var rule in g.Rules) { 
 			FirstDump.Clear();
 
-			if ((!EmptyNonterminals.Contains(rule.LHS) || rule.RHS.Count > 0) && rule.RHS[0] is Terminal) {
-				VisitedRules.Add(rule);
+			if (EmptyRules.Contains(rule)) {
+				FirstDump.Add(Epsilon);
+				First.Add(new FirstRuleSet(
+					rule: rule,
+					symbolSet: new HashSet<Symbol>(FirstDump)
+				));
+				continue;
+			}
+			
+			if (rule.RHS[0] is Terminal) {
 				First.Add(new FirstRuleSet(
 					rule: rule,
 					symbolSet: new HashSet<Symbol> { rule.RHS[0] }
 				));
 				continue;
 			}
-
-			foreach (var rightSide in rule.RHS) {
-				if (rightSide is Nonterminal) {
-					Nonterminal tmp = (Nonterminal)rightSide;
-					ComputeHiddenTerminal(tmp.Rules);
-				}
-			}
-
+			
+			Nonterminal tmp = (Nonterminal)rule.RHS[0];
+			ComputeHiddenTerminal(tmp.Rules);
+			
 			if (FirstDump.Count == 0 || EmptyNonterminals.Contains(rule.LHS) ) {
 				FirstDump.Add(Epsilon);
 			}
-
-			ISet<Symbol> tmpp = new HashSet<Symbol>(FirstDump);
+			
 			First.Add(new FirstRuleSet(
 				rule: rule,
-				symbolSet: tmpp
+				symbolSet: new HashSet<Symbol>(FirstDump)
 			));
 		}
 	}
@@ -103,17 +109,15 @@ public class GrammarOps {
 			if (VisitedRules.Contains(rule)) {
 				continue;
 			}
-			foreach (var rightSide in rule.RHS) {
-				if (rightSide is Terminal) {
-					FirstDump.Add(rightSide);
-					VisitedRules.Add(rule);
-					continue;
-				}
-
-				Nonterminal tmp = (Nonterminal)rightSide;
-				ComputeHiddenTerminal(tmp.Rules);
+			if (rule.RHS[0] is Terminal) {
+				FirstDump.Add(rule.RHS[0]);
 				VisitedRules.Add(rule);
+				continue;
 			}
+			
+			Nonterminal tmp = (Nonterminal)rule.RHS[0];
+			ComputeHiddenTerminal(tmp.Rules);
+			VisitedRules.Add(rule);
 		}
 	}
 	

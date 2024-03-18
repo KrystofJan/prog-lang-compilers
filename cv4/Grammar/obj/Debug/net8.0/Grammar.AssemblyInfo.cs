@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Grammar")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+faba4a221a3fc940a04ace438c6784c9998742a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcb967d62d4c1d655175a784345e68277816f888")]
 [assembly: System.Reflection.AssemblyProductAttribute("Grammar")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Grammar")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

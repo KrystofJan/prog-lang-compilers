@@ -41,19 +41,17 @@ public class LL1GrammarProcessor {
 
 			List<Symbol> NonTerminalsFollowSymbolSets = Follow.Follow[nonTerminal].ToList();
 			FollowDictionary.Add(nonTerminal, NonTerminalsFollowSymbolSets);
-
 		}
 		checkLL1();
-
 	}
 
 	private void checkLL1() {
 		// first
 		ChangeEpsilonForFollow();
-		
+
 		foreach (var symbol in LL1UniqueSymbolDump) {
 			if (ContainsADuplicate(symbol.Value)) {
-				Console.WriteLine($"{symbol.Key} contains a duplicate!");
+				Console.WriteLine($"{symbol.Key.Name} contains a duplicate!");
 				isLL1 = false;
 				return;
 			}
@@ -72,6 +70,6 @@ public class LL1GrammarProcessor {
 	}
 
 	private bool ContainsADuplicate(List<Symbol> listOfSymbols) {
-		return listOfSymbols.Count == listOfSymbols.Distinct().Count();
+		return listOfSymbols.Count != listOfSymbols.Distinct().Count();
 	}
 }

@@ -9,7 +9,7 @@ public class FollowRuleSet{
 	public override string ToString() {
 		StringBuilder sb = new StringBuilder();
 		foreach (var follow in Follow) {
-			sb.Append($"Follow[{follow.Key}]:");
+			sb.Append($"Follow[{follow.Key.Name}]:");
 			
 			foreach (var value in follow.Value) {
 				sb.Append($"{value.Name} ");

@@ -26,9 +26,10 @@ namespace Lab3
 				}
 				
 				Console.WriteLine(gr.Follow.ToString());
-				// TODO: test
+				
 				LL1GrammarProcessor ll1GrammarProcessor = new LL1GrammarProcessor(grammar, gr.First, gr.Follow, Epsilon);
-				Console.WriteLine(gr.Follow.ToString());
+				string not = ll1GrammarProcessor.isLL1 ? "" : " not";
+				Console.WriteLine("It it" + not +" LL1 grammar");
 			}
 			catch (GrammarException e)
 			{
