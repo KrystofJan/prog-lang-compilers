@@ -43,6 +43,7 @@ public class GrammarOps {
 				FirstsDictionary[first.Rule.LHS].Add(symbol);
 			}
 		}
+
 		foreach (Nonterminal key in FollowDictionary.Keys) {
 			ComputeFollow(g.Rules, key);
 			VisitedFollows.Clear();
@@ -143,6 +144,7 @@ public class GrammarOps {
 				foreach (var symbol in FollowDictionary[rule.LHS]) {
 					FollowDictionary[currentSymbol].Add(symbol);
 				}
+				
 				continue;
 			}
 			if (rule.RHS[currentSymbolIndex + 1] is Terminal) {

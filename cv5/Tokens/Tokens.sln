@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokens", "Tokens\Tokens.csproj", "{035311B0-0FB9-44F5-BA76-9AB88B90889D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenizer", "Tokenizer\Tokenizer.csproj", "{C4FA17CA-D981-426B-9BC7-EB777E8E8FEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{035311B0-0FB9-44F5-BA76-9AB88B90889D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035311B0-0FB9-44F5-BA76-9AB88B90889D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035311B0-0FB9-44F5-BA76-9AB88B90889D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035311B0-0FB9-44F5-BA76-9AB88B90889D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4FA17CA-D981-426B-9BC7-EB777E8E8FEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4FA17CA-D981-426B-9BC7-EB777E8E8FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4FA17CA-D981-426B-9BC7-EB777E8E8FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4FA17CA-D981-426B-9BC7-EB777E8E8FEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
