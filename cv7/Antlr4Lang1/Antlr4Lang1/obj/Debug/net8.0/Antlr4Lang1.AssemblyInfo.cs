@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Antlr4Lang1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fea2154b8e85c94846461f2543f46f59aacc2be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f7b5be1a473dd6376f6beb79ab03f4af81ca3c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Antlr4Lang1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Antlr4Lang1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

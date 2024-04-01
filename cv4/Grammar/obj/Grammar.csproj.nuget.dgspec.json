@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zahry\\pjp\\cv4\\Grammar\\Grammar.csproj": {}
+    "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zahry\\pjp\\cv4\\Grammar\\Grammar.csproj": {
+    "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zahry\\pjp\\cv4\\Grammar\\Grammar.csproj",
+        "projectUniqueName": "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj",
         "projectName": "Grammar",
-        "projectPath": "C:\\Users\\zahry\\pjp\\cv4\\Grammar\\Grammar.csproj",
-        "packagesPath": "C:\\Users\\zahry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zahry\\pjp\\cv4\\Grammar\\obj\\",
+        "projectPath": "/home/zahry/school/pjp/cv4/Grammar/Grammar.csproj",
+        "packagesPath": "/home/zahry/.nuget/packages/",
+        "outputPath": "/home/zahry/school/pjp/cv4/Grammar/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\zahry\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/zahry/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/zahry/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
