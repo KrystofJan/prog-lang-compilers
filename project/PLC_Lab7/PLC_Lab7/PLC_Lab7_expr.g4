@@ -12,7 +12,8 @@ stat:
 	| write ';'
 	| statwrap
 	| if
-	| while;
+	| while
+	| for;
 
 
 types: 	
@@ -40,19 +41,21 @@ if:
 
 	
 cond:
-	'(' expr ')' ;
+	   '(' expr ')'
+	 | expr;
 
 
 while: 	
 	'while' cond stat;
 
+for: 
+    'for' '(' expr  ';' cond ';' expr ')' stat ;
 
 expr: 	  
 	  values operation?
 	| assignment
 	| unary
     | '(' expr ')';
-    
 
 unary:
 	NEG_OP expr | UN_MIN expr;
