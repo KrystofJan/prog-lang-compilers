@@ -5,68 +5,80 @@ prog:
 	(stat)+;
 
 stat: 	
-      ';'                                           # sem
-	| dtype ID (',' ID)* ';'                        # declaration
-	| expr ';'                                      # expression
-    | 'read' ID (',' ID)*  ';'                      # read
-	| 'write' expr (',' expr)*  ';'                 # write
-	| '{' stat (stat)* '}'                          # scope
-	| 'if' cond stat ('else' stat)?                 # if
-	| 'while' cond stat                             # whileCyc
-	| 'for' '(' expr  ';' cond ';' expr ')' stat    # forCyc
-    ;
+	  ';'
+	| types ';'
+	| expr ';'
+	| read ';'
+	| write ';'
+	| statwrap
+	| if
+	| while
+	| for;
 
-dtype: 	
-          INT_KW    # int
-        | FLOAT_KW  # float
-        | BOOL_KW   # bool
-        | STRING_KW # string
-        ;
+types: 	
+	dtype ID (',' ID)* ;
 	
+dtype: 	
+	'int' | 'float' | 'bool' | 'string';
+
+read: 	
+	'read' ID (',' ID)* ;
+
+write: 	
+	'write' expr (',' expr)* ;
+
+statwrap: 
+	'{' stat (stat)* '}';
+
+if: 	
+	'if' cond stat ('else' stat)? ;
+
 cond:
-	   '(' expr ')' # condWrapped
-	 | expr         # condClean
-	 ;
+	   '(' expr ')'
+	 | expr;
+
+
+while: 	
+	'while' cond stat;
+
+for: 
+    'for' '(' expr  ';' cond ';' expr ')' stat ;
 
 expr: 	  
-	  values operation?         # exprWithValue
-	| assignment                # assign
-	| unary                     # unar
-    | '(' expr ')'              # exprWrapped
-    ;
-    
+	  exprMath          # math
+	| assignment        # ass
+	| unary             # unar
+    | '(' expr ')'      # exprWrap
+    ; 
+
 unary:
 	NEG_OP expr | UN_MIN expr;
 
 assignment: 
-	  ID ASSIGN values (',' ASSIGN values)*;
+	ID ASSIGN UN_MIN? expr;
 
 values: 
-	  ID 
-  	| INT 
-  	| FLOAT 
-  	| BOOL 
-  	| STRING ;
+	  ID    # identity
+  	| INT   # integerVal
+  	| FLOAT # floatVal
+  	| BOOL  # booleanVal
+  	| STRING # stringVal
+  	;
 
-operation: 
-	  operator expr;
+exprMath: 
+      values                # mathValue
+    | mathOp                # mathExpr
+    ;
 
-operator: 
-	  BIN_AR_ADD    # binAdd
-	| BIN_AR_MUL    # binMul
-	| CMP           # cmp
-	| REL           # rel
-	| LOG_OR        # logOr
-	| LOG_AND       # logAnd
-	;     
+mathOp: 
+      values op=(ADD_OP | MIN_OP | CONCAT_OP) expr  # mathAdd
+    | values op=(	MUL_OP | DIV_OP | MOD_OP) expr  # mathMul
+    | values op=(EQ | NEQ) expr                     # mathCmp
+    | values op=(CMP_LT | CMP_MT) expr              # mathRel
+    | values LOG_OR expr                            # mathOr
+    | values LOG_AND expr                           # mathAnd
+    ;
     
-// types
-INT_KW : 'int';
-FLOAT_KW : 'float';
-BOOL_KW : 'bool';
-STRING_KW: 'string';
-
-
 
 // matches
 ID : [a-zA-Z][a-zA-Z0-9_]* ;        // match identifiers
@@ -80,12 +92,19 @@ WS : [ \t\r\n]+ -> skip ;   // toss out whitespace
 ASSIGN: 	    '=';
 UN_MIN: 	    '-';
 NEG_OP: 	    '!';
-BIN_AR_MUL: 	'*' | '/' | '%';
-BIN_AR_ADD: 	'+' | '-' | '.';
+CMP_LT:         '<';
+CMP_MT:         '>';
+ADD_OP:         '+';
+MIN_OP:         '-';
+CONCAT_OP:      '.';
+MUL_OP: 	    '*';
+DIV_OP:         '/';
+MOD_OP:         '%';
 LOG_OR:     	'||';
 LOG_AND: 	    '&&';
-CMP: 		    '==' | '!=';
-REL: 		    '<' | '>';
+EQ:             '==';
+NEQ:            '!=';
+
 
 // symbols
 //PLUS: 	    '+';

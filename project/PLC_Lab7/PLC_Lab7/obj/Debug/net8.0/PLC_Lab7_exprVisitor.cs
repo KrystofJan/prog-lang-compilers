@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\zahry\pjp\project\PLC_Lab7\PLC_Lab7\PLC_Lab7_expr.g4 by ANTLR 4.6.6
+// Generated from /home/zahry/school/pjp/project/PLC_Lab7/PLC_Lab7/PLC_Lab7_expr.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -33,140 +33,20 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>sem</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitSem([NotNull] PLC_Lab7_exprParser.SemContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>declaration</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitDeclaration([NotNull] PLC_Lab7_exprParser.DeclarationContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>expression</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] PLC_Lab7_exprParser.ExpressionContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>read</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitRead([NotNull] PLC_Lab7_exprParser.ReadContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>write</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitWrite([NotNull] PLC_Lab7_exprParser.WriteContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>scope</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitScope([NotNull] PLC_Lab7_exprParser.ScopeContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>if</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitIf([NotNull] PLC_Lab7_exprParser.IfContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>whileCyc</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitWhileCyc([NotNull] PLC_Lab7_exprParser.WhileCycContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>forCyc</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitForCyc([NotNull] PLC_Lab7_exprParser.ForCycContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>int</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitInt([NotNull] PLC_Lab7_exprParser.IntContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>float</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFloat([NotNull] PLC_Lab7_exprParser.FloatContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>bool</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitBool([NotNull] PLC_Lab7_exprParser.BoolContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>string</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitString([NotNull] PLC_Lab7_exprParser.StringContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>condWrapped</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.cond"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCondWrapped([NotNull] PLC_Lab7_exprParser.CondWrappedContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>condClean</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.cond"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCondClean([NotNull] PLC_Lab7_exprParser.CondCleanContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by the <c>exprWithValue</c>
+	/// Visit a parse tree produced by the <c>math</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExprWithValue([NotNull] PLC_Lab7_exprParser.ExprWithValueContext context);
+	Result VisitMath([NotNull] PLC_Lab7_exprParser.MathContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>assign</c>
+	/// Visit a parse tree produced by the <c>ass</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitAssign([NotNull] PLC_Lab7_exprParser.AssignContext context);
+	Result VisitAss([NotNull] PLC_Lab7_exprParser.AssContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>unar</c>
@@ -177,60 +57,116 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitUnar([NotNull] PLC_Lab7_exprParser.UnarContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>exprWrapped</c>
+	/// Visit a parse tree produced by the <c>exprWrap</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExprWrapped([NotNull] PLC_Lab7_exprParser.ExprWrappedContext context);
+	Result VisitExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>binAdd</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by the <c>identity</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBinAdd([NotNull] PLC_Lab7_exprParser.BinAddContext context);
+	Result VisitIdentity([NotNull] PLC_Lab7_exprParser.IdentityContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>binMul</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by the <c>integerVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitBinMul([NotNull] PLC_Lab7_exprParser.BinMulContext context);
+	Result VisitIntegerVal([NotNull] PLC_Lab7_exprParser.IntegerValContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>cmp</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by the <c>floatVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitCmp([NotNull] PLC_Lab7_exprParser.CmpContext context);
+	Result VisitFloatVal([NotNull] PLC_Lab7_exprParser.FloatValContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>rel</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by the <c>booleanVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitRel([NotNull] PLC_Lab7_exprParser.RelContext context);
+	Result VisitBooleanVal([NotNull] PLC_Lab7_exprParser.BooleanValContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>logOr</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by the <c>stringVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLogOr([NotNull] PLC_Lab7_exprParser.LogOrContext context);
+	Result VisitStringVal([NotNull] PLC_Lab7_exprParser.StringValContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>logAnd</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by the <c>mathValue</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.exprMath"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLogAnd([NotNull] PLC_Lab7_exprParser.LogAndContext context);
+	Result VisitMathValue([NotNull] PLC_Lab7_exprParser.MathValueContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.exprMath"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMathExpr([NotNull] PLC_Lab7_exprParser.MathExprContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathAdd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMathAdd([NotNull] PLC_Lab7_exprParser.MathAddContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathMul</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMathMul([NotNull] PLC_Lab7_exprParser.MathMulContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathCmp</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMathCmp([NotNull] PLC_Lab7_exprParser.MathCmpContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathRel</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMathRel([NotNull] PLC_Lab7_exprParser.MathRelContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathOr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMathOr([NotNull] PLC_Lab7_exprParser.MathOrContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathAnd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMathAnd([NotNull] PLC_Lab7_exprParser.MathAndContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.prog"/>.
@@ -247,6 +183,13 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitStat([NotNull] PLC_Lab7_exprParser.StatContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.types"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitTypes([NotNull] PLC_Lab7_exprParser.TypesContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.dtype"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -254,11 +197,53 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitDtype([NotNull] PLC_Lab7_exprParser.DtypeContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.read"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitRead([NotNull] PLC_Lab7_exprParser.ReadContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.write"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitWrite([NotNull] PLC_Lab7_exprParser.WriteContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.statwrap"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStatwrap([NotNull] PLC_Lab7_exprParser.StatwrapContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.if"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitIf([NotNull] PLC_Lab7_exprParser.IfContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.cond"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitCond([NotNull] PLC_Lab7_exprParser.CondContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.while"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitWhile([NotNull] PLC_Lab7_exprParser.WhileContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.for"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFor([NotNull] PLC_Lab7_exprParser.ForContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.expr"/>.
@@ -283,24 +268,24 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypecondcondexprexprexprexproperatoroperatoroperatoroperatoroperatoroperator"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.exprexprexprexprvaluesvaluesvaluesvaluesvaluesexprMathexprMathmathOpmathOpmathOpmathOpmathOpmathOp"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitValues([NotNull] PLC_Lab7_exprParser.ValuesContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.operation"/>.
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.exprMath"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitOperation([NotNull] PLC_Lab7_exprParser.OperationContext context);
+	Result VisitExprMath([NotNull] PLC_Lab7_exprParser.ExprMathContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathOp"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitOperator([NotNull] PLC_Lab7_exprParser.OperatorContext context);
+	Result VisitMathOp([NotNull] PLC_Lab7_exprParser.MathOpContext context);
 }
 } // namespace PLC_Lab7

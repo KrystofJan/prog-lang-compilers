@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\zahry\pjp\project\PLC_Lab7\PLC_Lab7\PLC_Lab7_expr.g4 by ANTLR 4.6.6
+// Generated from /home/zahry/school/pjp/project/PLC_Lab7/PLC_Lab7/PLC_Lab7_expr.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -32,6 +32,78 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.6.6")]
 [System.CLSCompliant(false)]
 public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
+	/// <summary>
+	/// Visit a parse tree produced by the <c>math</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitMath([NotNull] PLC_Lab7_exprParser.MathContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>ass</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitAss([NotNull] PLC_Lab7_exprParser.AssContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>unar</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitUnar([NotNull] PLC_Lab7_exprParser.UnarContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>exprWrap</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>identity</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitIdentity([NotNull] PLC_Lab7_exprParser.IdentityContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>integerVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitIntegerVal([NotNull] PLC_Lab7_exprParser.IntegerValContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>floatVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFloatVal([NotNull] PLC_Lab7_exprParser.FloatValContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>booleanVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitBooleanVal([NotNull] PLC_Lab7_exprParser.BooleanValContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>stringVal</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.values"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitStringVal([NotNull] PLC_Lab7_exprParser.StringValContext context);
+
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.prog"/>.
 	/// </summary>
@@ -131,7 +203,8 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitAssignment([NotNull] PLC_Lab7_exprParser.AssignmentContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.values"/>.
+	/// Visit a parse tree produced by the <c>values</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.exprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>

@@ -34,6 +34,8 @@ namespace PLC_Lab7
                 walker.Walk(el, tree);
                 
                 new EvalVisitor(el.SymbolTable).Visit(tree);
+                
+                Errors.PrintAndClearErrors();
             }
         }
     }

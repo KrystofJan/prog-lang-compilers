@@ -13,7 +13,8 @@ namespace PLC_Lab7
         // public ParseTreeProperty<Type> values = new ParseTreeProperty<Type>();
 
         public SymbolTable SymbolTable = new SymbolTable();
-        public override void ExitDeclaration([NotNull] PLC_Lab7_exprParser.DeclarationContext context) {
+        
+        public override void ExitTypes([NotNull] PLC_Lab7_exprParser.TypesContext context) {
             Type t;
             switch (context.dtype().GetText().ToLower()) {
                 case "int": {
@@ -22,6 +23,14 @@ namespace PLC_Lab7
                 }
                 case "float": {
                     t = Type.FLOAT;
+                    break;
+                }
+                case "bool": {
+                    t = Type.BOOL;
+                    break;
+                }
+                case "string": {
+                    t = Type.STRING;
                     break;
                 }
                 default: {
