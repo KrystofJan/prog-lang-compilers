@@ -36,6 +36,381 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class PLC_Lab7_exprBaseListener : IPLC_Lab7_exprListener {
 	/// <summary>
+	/// Enter a parse tree produced by the <c>sem</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterSem([NotNull] PLC_Lab7_exprParser.SemContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>sem</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitSem([NotNull] PLC_Lab7_exprParser.SemContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>declaration</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterDeclaration([NotNull] PLC_Lab7_exprParser.DeclarationContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>declaration</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitDeclaration([NotNull] PLC_Lab7_exprParser.DeclarationContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>expression</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExpression([NotNull] PLC_Lab7_exprParser.ExpressionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>expression</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExpression([NotNull] PLC_Lab7_exprParser.ExpressionContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>read</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterRead([NotNull] PLC_Lab7_exprParser.ReadContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>read</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitRead([NotNull] PLC_Lab7_exprParser.ReadContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>write</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterWrite([NotNull] PLC_Lab7_exprParser.WriteContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>write</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitWrite([NotNull] PLC_Lab7_exprParser.WriteContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>scope</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterScope([NotNull] PLC_Lab7_exprParser.ScopeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>scope</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitScope([NotNull] PLC_Lab7_exprParser.ScopeContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>if</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterIf([NotNull] PLC_Lab7_exprParser.IfContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>if</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitIf([NotNull] PLC_Lab7_exprParser.IfContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>whileCyc</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterWhileCyc([NotNull] PLC_Lab7_exprParser.WhileCycContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>whileCyc</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitWhileCyc([NotNull] PLC_Lab7_exprParser.WhileCycContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>forCyc</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterForCyc([NotNull] PLC_Lab7_exprParser.ForCycContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>forCyc</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.stat"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitForCyc([NotNull] PLC_Lab7_exprParser.ForCycContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>int</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterInt([NotNull] PLC_Lab7_exprParser.IntContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>int</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitInt([NotNull] PLC_Lab7_exprParser.IntContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>float</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFloat([NotNull] PLC_Lab7_exprParser.FloatContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>float</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFloat([NotNull] PLC_Lab7_exprParser.FloatContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>bool</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterBool([NotNull] PLC_Lab7_exprParser.BoolContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>bool</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitBool([NotNull] PLC_Lab7_exprParser.BoolContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>string</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterString([NotNull] PLC_Lab7_exprParser.StringContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>string</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitString([NotNull] PLC_Lab7_exprParser.StringContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>condWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.cond"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCondWrapped([NotNull] PLC_Lab7_exprParser.CondWrappedContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>condWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.cond"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCondWrapped([NotNull] PLC_Lab7_exprParser.CondWrappedContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>condClean</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.cond"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCondClean([NotNull] PLC_Lab7_exprParser.CondCleanContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>condClean</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.cond"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCondClean([NotNull] PLC_Lab7_exprParser.CondCleanContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>exprWithValue</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExprWithValue([NotNull] PLC_Lab7_exprParser.ExprWithValueContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>exprWithValue</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExprWithValue([NotNull] PLC_Lab7_exprParser.ExprWithValueContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>assign</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterAssign([NotNull] PLC_Lab7_exprParser.AssignContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>assign</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitAssign([NotNull] PLC_Lab7_exprParser.AssignContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>unar</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterUnar([NotNull] PLC_Lab7_exprParser.UnarContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>unar</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitUnar([NotNull] PLC_Lab7_exprParser.UnarContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>exprWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterExprWrapped([NotNull] PLC_Lab7_exprParser.ExprWrappedContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>exprWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitExprWrapped([NotNull] PLC_Lab7_exprParser.ExprWrappedContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>binAdd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterBinAdd([NotNull] PLC_Lab7_exprParser.BinAddContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>binAdd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitBinAdd([NotNull] PLC_Lab7_exprParser.BinAddContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>binMul</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterBinMul([NotNull] PLC_Lab7_exprParser.BinMulContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>binMul</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitBinMul([NotNull] PLC_Lab7_exprParser.BinMulContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>cmp</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterCmp([NotNull] PLC_Lab7_exprParser.CmpContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>cmp</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitCmp([NotNull] PLC_Lab7_exprParser.CmpContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>rel</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterRel([NotNull] PLC_Lab7_exprParser.RelContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>rel</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitRel([NotNull] PLC_Lab7_exprParser.RelContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>logOr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLogOr([NotNull] PLC_Lab7_exprParser.LogOrContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>logOr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLogOr([NotNull] PLC_Lab7_exprParser.LogOrContext context) { }
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>logAnd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLogAnd([NotNull] PLC_Lab7_exprParser.LogAndContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>logAnd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLogAnd([NotNull] PLC_Lab7_exprParser.LogAndContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.prog"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -62,19 +437,6 @@ public partial class PLC_Lab7_exprBaseListener : IPLC_Lab7_exprListener {
 	public virtual void ExitStat([NotNull] PLC_Lab7_exprParser.StatContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.types"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterTypes([NotNull] PLC_Lab7_exprParser.TypesContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.types"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitTypes([NotNull] PLC_Lab7_exprParser.TypesContext context) { }
-
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.dtype"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -88,58 +450,6 @@ public partial class PLC_Lab7_exprBaseListener : IPLC_Lab7_exprListener {
 	public virtual void ExitDtype([NotNull] PLC_Lab7_exprParser.DtypeContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.read"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterRead([NotNull] PLC_Lab7_exprParser.ReadContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.read"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitRead([NotNull] PLC_Lab7_exprParser.ReadContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.write"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterWrite([NotNull] PLC_Lab7_exprParser.WriteContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.write"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitWrite([NotNull] PLC_Lab7_exprParser.WriteContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.statwrap"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterStatwrap([NotNull] PLC_Lab7_exprParser.StatwrapContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.statwrap"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitStatwrap([NotNull] PLC_Lab7_exprParser.StatwrapContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.if"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterIf([NotNull] PLC_Lab7_exprParser.IfContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.if"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitIf([NotNull] PLC_Lab7_exprParser.IfContext context) { }
-
-	/// <summary>
 	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.cond"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -151,32 +461,6 @@ public partial class PLC_Lab7_exprBaseListener : IPLC_Lab7_exprListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitCond([NotNull] PLC_Lab7_exprParser.CondContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.while"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterWhile([NotNull] PLC_Lab7_exprParser.WhileContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.while"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitWhile([NotNull] PLC_Lab7_exprParser.WhileContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.for"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterFor([NotNull] PLC_Lab7_exprParser.ForContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.for"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitFor([NotNull] PLC_Lab7_exprParser.ForContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.expr"/>.
@@ -218,13 +502,15 @@ public partial class PLC_Lab7_exprBaseListener : IPLC_Lab7_exprListener {
 	public virtual void ExitAssignment([NotNull] PLC_Lab7_exprParser.AssignmentContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.values"/>.
+	/// Enter a parse tree produced by the <c>values</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypecondcondexprexprexprexproperatoroperatoroperatoroperatoroperatoroperator"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void EnterValues([NotNull] PLC_Lab7_exprParser.ValuesContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.values"/>.
+	/// Exit a parse tree produced by the <c>values</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypecondcondexprexprexprexproperatoroperatoroperatoroperatoroperatoroperator"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

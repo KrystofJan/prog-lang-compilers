@@ -32,31 +32,30 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 public partial class PLC_Lab7_exprParser : Parser {
 	public const int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, ID=17, 
-		INT=18, BOOL=19, FLOAT=20, STRING=21, WS=22, ASSIGN=23, UN_MIN=24, NEG_OP=25, 
-		BIN_AR_MUL=26, BIN_AR_ADD=27, LOG_OR=28, LOG_AND=29, CMP=30, REL=31;
+		T__9=10, T__10=11, T__11=12, INT_KW=13, FLOAT_KW=14, BOOL_KW=15, STRING_KW=16, 
+		ID=17, INT=18, BOOL=19, FLOAT=20, STRING=21, WS=22, ASSIGN=23, UN_MIN=24, 
+		NEG_OP=25, BIN_AR_MUL=26, BIN_AR_ADD=27, LOG_OR=28, LOG_AND=29, CMP=30, 
+		REL=31;
 	public const int
-		RULE_prog = 0, RULE_stat = 1, RULE_types = 2, RULE_dtype = 3, RULE_read = 4, 
-		RULE_write = 5, RULE_statwrap = 6, RULE_if = 7, RULE_cond = 8, RULE_while = 9, 
-		RULE_for = 10, RULE_expr = 11, RULE_unary = 12, RULE_assignment = 13, 
-		RULE_values = 14, RULE_operation = 15, RULE_operator = 16;
+		RULE_prog = 0, RULE_stat = 1, RULE_dtype = 2, RULE_cond = 3, RULE_expr = 4, 
+		RULE_unary = 5, RULE_assignment = 6, RULE_values = 7, RULE_operation = 8, 
+		RULE_operator = 9;
 	public static readonly string[] ruleNames = {
-		"prog", "stat", "types", "dtype", "read", "write", "statwrap", "if", "cond", 
-		"while", "for", "expr", "unary", "assignment", "values", "operation", 
-		"operator"
+		"prog", "stat", "dtype", "cond", "expr", "unary", "assignment", "values", 
+		"operation", "operator"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "';'", "','", "'int'", "'float'", "'bool'", "'string'", "'read'", 
-		"'write'", "'{'", "'}'", "'if'", "'else'", "'('", "')'", "'while'", "'for'", 
+		null, "';'", "','", "'read'", "'write'", "'{'", "'}'", "'if'", "'else'", 
+		"'while'", "'for'", "'('", "')'", "'int'", "'float'", "'bool'", "'string'", 
 		null, null, null, null, null, null, "'='", "'-'", "'!'", null, null, "'||'", 
 		"'&&'"
 	};
 	private static readonly string[] _SymbolicNames = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, "ID", "INT", "BOOL", "FLOAT", "STRING", 
-		"WS", "ASSIGN", "UN_MIN", "NEG_OP", "BIN_AR_MUL", "BIN_AR_ADD", "LOG_OR", 
-		"LOG_AND", "CMP", "REL"
+		null, "INT_KW", "FLOAT_KW", "BOOL_KW", "STRING_KW", "ID", "INT", "BOOL", 
+		"FLOAT", "STRING", "WS", "ASSIGN", "UN_MIN", "NEG_OP", "BIN_AR_MUL", "BIN_AR_ADD", 
+		"LOG_OR", "LOG_AND", "CMP", "REL"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -143,19 +142,19 @@ public partial class PLC_Lab7_exprParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 35;
+			State = 21;
 			_errHandler.Sync(this);
 			_la = _input.La(1);
 			do {
 				{
 				{
-				State = 34; stat();
+				State = 20; stat();
 				}
 				}
-				State = 37;
+				State = 23;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__10) | (1L << T__12) | (1L << T__14) | (1L << T__15) | (1L << ID) | (1L << INT) | (1L << BOOL) | (1L << FLOAT) | (1L << STRING) | (1L << UN_MIN) | (1L << NEG_OP))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__6) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << INT_KW) | (1L << FLOAT_KW) | (1L << BOOL_KW) | (1L << STRING_KW) | (1L << ID) | (1L << INT) | (1L << BOOL) | (1L << FLOAT) | (1L << STRING) | (1L << UN_MIN) | (1L << NEG_OP))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -170,46 +169,211 @@ public partial class PLC_Lab7_exprParser : Parser {
 	}
 
 	public partial class StatContext : ParserRuleContext {
-		public TypesContext types() {
-			return GetRuleContext<TypesContext>(0);
-		}
-		public ExprContext expr() {
-			return GetRuleContext<ExprContext>(0);
-		}
-		public ReadContext read() {
-			return GetRuleContext<ReadContext>(0);
-		}
-		public WriteContext write() {
-			return GetRuleContext<WriteContext>(0);
-		}
-		public StatwrapContext statwrap() {
-			return GetRuleContext<StatwrapContext>(0);
-		}
-		public IfContext @if() {
-			return GetRuleContext<IfContext>(0);
-		}
-		public WhileContext @while() {
-			return GetRuleContext<WhileContext>(0);
-		}
-		public ForContext @for() {
-			return GetRuleContext<ForContext>(0);
-		}
 		public StatContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_stat; } }
+	 
+		public StatContext() { }
+		public virtual void CopyFrom(StatContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class SemContext : StatContext {
+		public SemContext(StatContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterStat(this);
+			if (typedListener != null) typedListener.EnterSem(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitStat(this);
+			if (typedListener != null) typedListener.ExitSem(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitStat(this);
+			if (typedVisitor != null) return typedVisitor.VisitSem(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class DeclarationContext : StatContext {
+		public DtypeContext dtype() {
+			return GetRuleContext<DtypeContext>(0);
+		}
+		public ITerminalNode[] ID() { return GetTokens(PLC_Lab7_exprParser.ID); }
+		public ITerminalNode ID(int i) {
+			return GetToken(PLC_Lab7_exprParser.ID, i);
+		}
+		public DeclarationContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterDeclaration(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitDeclaration(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExpressionContext : StatContext {
+		public ExprContext expr() {
+			return GetRuleContext<ExprContext>(0);
+		}
+		public ExpressionContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterExpression(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitExpression(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpression(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ReadContext : StatContext {
+		public ITerminalNode[] ID() { return GetTokens(PLC_Lab7_exprParser.ID); }
+		public ITerminalNode ID(int i) {
+			return GetToken(PLC_Lab7_exprParser.ID, i);
+		}
+		public ReadContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterRead(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitRead(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRead(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class WriteContext : StatContext {
+		public ExprContext[] expr() {
+			return GetRuleContexts<ExprContext>();
+		}
+		public ExprContext expr(int i) {
+			return GetRuleContext<ExprContext>(i);
+		}
+		public WriteContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterWrite(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitWrite(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWrite(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ScopeContext : StatContext {
+		public StatContext[] stat() {
+			return GetRuleContexts<StatContext>();
+		}
+		public StatContext stat(int i) {
+			return GetRuleContext<StatContext>(i);
+		}
+		public ScopeContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterScope(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitScope(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitScope(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class IfContext : StatContext {
+		public CondContext cond() {
+			return GetRuleContext<CondContext>(0);
+		}
+		public StatContext[] stat() {
+			return GetRuleContexts<StatContext>();
+		}
+		public StatContext stat(int i) {
+			return GetRuleContext<StatContext>(i);
+		}
+		public IfContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterIf(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitIf(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIf(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class WhileCycContext : StatContext {
+		public CondContext cond() {
+			return GetRuleContext<CondContext>(0);
+		}
+		public StatContext stat() {
+			return GetRuleContext<StatContext>(0);
+		}
+		public WhileCycContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterWhileCyc(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitWhileCyc(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhileCyc(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ForCycContext : StatContext {
+		public ExprContext[] expr() {
+			return GetRuleContexts<ExprContext>();
+		}
+		public ExprContext expr(int i) {
+			return GetRuleContext<ExprContext>(i);
+		}
+		public CondContext cond() {
+			return GetRuleContext<CondContext>(0);
+		}
+		public StatContext stat() {
+			return GetRuleContext<StatContext>(0);
+		}
+		public ForCycContext(StatContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterForCyc(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitForCyc(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForCyc(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -218,27 +382,45 @@ public partial class PLC_Lab7_exprParser : Parser {
 	public StatContext stat() {
 		StatContext _localctx = new StatContext(_ctx, State);
 		EnterRule(_localctx, 2, RULE_stat);
+		int _la;
 		try {
-			State = 56;
+			State = 92;
 			_errHandler.Sync(this);
 			switch (_input.La(1)) {
 			case T__0:
+				_localctx = new SemContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 39; Match(T__0);
+				State = 25; Match(T__0);
 				}
 				break;
-			case T__2:
-			case T__3:
-			case T__4:
-			case T__5:
+			case INT_KW:
+			case FLOAT_KW:
+			case BOOL_KW:
+			case STRING_KW:
+				_localctx = new DeclarationContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 40; types();
-				State = 41; Match(T__0);
+				State = 26; dtype();
+				State = 27; Match(ID);
+				State = 32;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+				while (_la==T__1) {
+					{
+					{
+					State = 28; Match(T__1);
+					State = 29; Match(ID);
+					}
+					}
+					State = 34;
+					_errHandler.Sync(this);
+					_la = _input.La(1);
+				}
+				State = 35; Match(T__0);
 				}
 				break;
-			case T__12:
+			case T__10:
 			case ID:
 			case INT:
 			case BOOL:
@@ -246,117 +428,126 @@ public partial class PLC_Lab7_exprParser : Parser {
 			case STRING:
 			case UN_MIN:
 			case NEG_OP:
+				_localctx = new ExpressionContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 43; expr();
-				State = 44; Match(T__0);
+				State = 37; expr();
+				State = 38; Match(T__0);
+				}
+				break;
+			case T__2:
+				_localctx = new ReadContext(_localctx);
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 40; Match(T__2);
+				State = 41; Match(ID);
+				State = 46;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+				while (_la==T__1) {
+					{
+					{
+					State = 42; Match(T__1);
+					State = 43; Match(ID);
+					}
+					}
+					State = 48;
+					_errHandler.Sync(this);
+					_la = _input.La(1);
+				}
+				State = 49; Match(T__0);
+				}
+				break;
+			case T__3:
+				_localctx = new WriteContext(_localctx);
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 50; Match(T__3);
+				State = 51; expr();
+				State = 56;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+				while (_la==T__1) {
+					{
+					{
+					State = 52; Match(T__1);
+					State = 53; expr();
+					}
+					}
+					State = 58;
+					_errHandler.Sync(this);
+					_la = _input.La(1);
+				}
+				State = 59; Match(T__0);
+				}
+				break;
+			case T__4:
+				_localctx = new ScopeContext(_localctx);
+				EnterOuterAlt(_localctx, 6);
+				{
+				State = 61; Match(T__4);
+				State = 62; stat();
+				State = 66;
+				_errHandler.Sync(this);
+				_la = _input.La(1);
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__6) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << INT_KW) | (1L << FLOAT_KW) | (1L << BOOL_KW) | (1L << STRING_KW) | (1L << ID) | (1L << INT) | (1L << BOOL) | (1L << FLOAT) | (1L << STRING) | (1L << UN_MIN) | (1L << NEG_OP))) != 0)) {
+					{
+					{
+					State = 63; stat();
+					}
+					}
+					State = 68;
+					_errHandler.Sync(this);
+					_la = _input.La(1);
+				}
+				State = 69; Match(T__5);
 				}
 				break;
 			case T__6:
-				EnterOuterAlt(_localctx, 4);
+				_localctx = new IfContext(_localctx);
+				EnterOuterAlt(_localctx, 7);
 				{
-				State = 46; read();
-				State = 47; Match(T__0);
+				State = 71; Match(T__6);
+				State = 72; cond();
+				State = 73; stat();
+				State = 76;
+				_errHandler.Sync(this);
+				switch ( Interpreter.AdaptivePredict(_input,5,_ctx) ) {
+				case 1:
+					{
+					State = 74; Match(T__7);
+					State = 75; stat();
+					}
+					break;
 				}
-				break;
-			case T__7:
-				EnterOuterAlt(_localctx, 5);
-				{
-				State = 49; write();
-				State = 50; Match(T__0);
 				}
 				break;
 			case T__8:
-				EnterOuterAlt(_localctx, 6);
-				{
-				State = 52; statwrap();
-				}
-				break;
-			case T__10:
-				EnterOuterAlt(_localctx, 7);
-				{
-				State = 53; @if();
-				}
-				break;
-			case T__14:
+				_localctx = new WhileCycContext(_localctx);
 				EnterOuterAlt(_localctx, 8);
 				{
-				State = 54; @while();
+				State = 78; Match(T__8);
+				State = 79; cond();
+				State = 80; stat();
 				}
 				break;
-			case T__15:
+			case T__9:
+				_localctx = new ForCycContext(_localctx);
 				EnterOuterAlt(_localctx, 9);
 				{
-				State = 55; @for();
+				State = 82; Match(T__9);
+				State = 83; Match(T__10);
+				State = 84; expr();
+				State = 85; Match(T__0);
+				State = 86; cond();
+				State = 87; Match(T__0);
+				State = 88; expr();
+				State = 89; Match(T__11);
+				State = 90; stat();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class TypesContext : ParserRuleContext {
-		public DtypeContext dtype() {
-			return GetRuleContext<DtypeContext>(0);
-		}
-		public ITerminalNode[] ID() { return GetTokens(PLC_Lab7_exprParser.ID); }
-		public ITerminalNode ID(int i) {
-			return GetToken(PLC_Lab7_exprParser.ID, i);
-		}
-		public TypesContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_types; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterTypes(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitTypes(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitTypes(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public TypesContext types() {
-		TypesContext _localctx = new TypesContext(_ctx, State);
-		EnterRule(_localctx, 4, RULE_types);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 58; dtype();
-			State = 59; Match(ID);
-			State = 64;
-			_errHandler.Sync(this);
-			_la = _input.La(1);
-			while (_la==T__1) {
-				{
-				{
-				State = 60; Match(T__1);
-				State = 61; Match(ID);
-				}
-				}
-				State = 66;
-				_errHandler.Sync(this);
-				_la = _input.La(1);
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -376,17 +567,77 @@ public partial class PLC_Lab7_exprParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_dtype; } }
+	 
+		public DtypeContext() { }
+		public virtual void CopyFrom(DtypeContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class IntContext : DtypeContext {
+		public ITerminalNode INT_KW() { return GetToken(PLC_Lab7_exprParser.INT_KW, 0); }
+		public IntContext(DtypeContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterDtype(this);
+			if (typedListener != null) typedListener.EnterInt(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitDtype(this);
+			if (typedListener != null) typedListener.ExitInt(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDtype(this);
+			if (typedVisitor != null) return typedVisitor.VisitInt(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class FloatContext : DtypeContext {
+		public ITerminalNode FLOAT_KW() { return GetToken(PLC_Lab7_exprParser.FLOAT_KW, 0); }
+		public FloatContext(DtypeContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterFloat(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitFloat(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFloat(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class BoolContext : DtypeContext {
+		public ITerminalNode BOOL_KW() { return GetToken(PLC_Lab7_exprParser.BOOL_KW, 0); }
+		public BoolContext(DtypeContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterBool(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitBool(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBool(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class StringContext : DtypeContext {
+		public ITerminalNode STRING_KW() { return GetToken(PLC_Lab7_exprParser.STRING_KW, 0); }
+		public StringContext(DtypeContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterString(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitString(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitString(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -394,276 +645,41 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public DtypeContext dtype() {
 		DtypeContext _localctx = new DtypeContext(_ctx, State);
-		EnterRule(_localctx, 6, RULE_dtype);
-		int _la;
+		EnterRule(_localctx, 4, RULE_dtype);
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 67;
-			_la = _input.La(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5))) != 0)) ) {
-			_errHandler.RecoverInline(this);
-			} else {
-				if (_input.La(1) == TokenConstants.Eof) {
-					matchedEOF = true;
-				}
-
-				_errHandler.ReportMatch(this);
-				Consume();
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class ReadContext : ParserRuleContext {
-		public ITerminalNode[] ID() { return GetTokens(PLC_Lab7_exprParser.ID); }
-		public ITerminalNode ID(int i) {
-			return GetToken(PLC_Lab7_exprParser.ID, i);
-		}
-		public ReadContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_read; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterRead(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitRead(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitRead(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public ReadContext read() {
-		ReadContext _localctx = new ReadContext(_ctx, State);
-		EnterRule(_localctx, 8, RULE_read);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 69; Match(T__6);
-			State = 70; Match(ID);
-			State = 75;
+			State = 98;
 			_errHandler.Sync(this);
-			_la = _input.La(1);
-			while (_la==T__1) {
+			switch (_input.La(1)) {
+			case INT_KW:
+				_localctx = new IntContext(_localctx);
+				EnterOuterAlt(_localctx, 1);
 				{
-				{
-				State = 71; Match(T__1);
-				State = 72; Match(ID);
-				}
-				}
-				State = 77;
-				_errHandler.Sync(this);
-				_la = _input.La(1);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class WriteContext : ParserRuleContext {
-		public ExprContext[] expr() {
-			return GetRuleContexts<ExprContext>();
-		}
-		public ExprContext expr(int i) {
-			return GetRuleContext<ExprContext>(i);
-		}
-		public WriteContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_write; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterWrite(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitWrite(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitWrite(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public WriteContext write() {
-		WriteContext _localctx = new WriteContext(_ctx, State);
-		EnterRule(_localctx, 10, RULE_write);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 78; Match(T__7);
-			State = 79; expr();
-			State = 84;
-			_errHandler.Sync(this);
-			_la = _input.La(1);
-			while (_la==T__1) {
-				{
-				{
-				State = 80; Match(T__1);
-				State = 81; expr();
-				}
-				}
-				State = 86;
-				_errHandler.Sync(this);
-				_la = _input.La(1);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class StatwrapContext : ParserRuleContext {
-		public StatContext[] stat() {
-			return GetRuleContexts<StatContext>();
-		}
-		public StatContext stat(int i) {
-			return GetRuleContext<StatContext>(i);
-		}
-		public StatwrapContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_statwrap; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterStatwrap(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitStatwrap(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitStatwrap(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public StatwrapContext statwrap() {
-		StatwrapContext _localctx = new StatwrapContext(_ctx, State);
-		EnterRule(_localctx, 12, RULE_statwrap);
-		int _la;
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 87; Match(T__8);
-			State = 88; stat();
-			State = 92;
-			_errHandler.Sync(this);
-			_la = _input.La(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__10) | (1L << T__12) | (1L << T__14) | (1L << T__15) | (1L << ID) | (1L << INT) | (1L << BOOL) | (1L << FLOAT) | (1L << STRING) | (1L << UN_MIN) | (1L << NEG_OP))) != 0)) {
-				{
-				{
-				State = 89; stat();
-				}
-				}
-				State = 94;
-				_errHandler.Sync(this);
-				_la = _input.La(1);
-			}
-			State = 95; Match(T__9);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class IfContext : ParserRuleContext {
-		public CondContext cond() {
-			return GetRuleContext<CondContext>(0);
-		}
-		public StatContext[] stat() {
-			return GetRuleContexts<StatContext>();
-		}
-		public StatContext stat(int i) {
-			return GetRuleContext<StatContext>(i);
-		}
-		public IfContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_if; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterIf(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitIf(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitIf(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public IfContext @if() {
-		IfContext _localctx = new IfContext(_ctx, State);
-		EnterRule(_localctx, 14, RULE_if);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 97; Match(T__10);
-			State = 98; cond();
-			State = 99; stat();
-			State = 102;
-			_errHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(_input,6,_ctx) ) {
-			case 1:
-				{
-				State = 100; Match(T__11);
-				State = 101; stat();
+				State = 94; Match(INT_KW);
 				}
 				break;
-			}
+			case FLOAT_KW:
+				_localctx = new FloatContext(_localctx);
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 95; Match(FLOAT_KW);
+				}
+				break;
+			case BOOL_KW:
+				_localctx = new BoolContext(_localctx);
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 96; Match(BOOL_KW);
+				}
+				break;
+			case STRING_KW:
+				_localctx = new StringContext(_localctx);
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 97; Match(STRING_KW);
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -678,25 +694,52 @@ public partial class PLC_Lab7_exprParser : Parser {
 	}
 
 	public partial class CondContext : ParserRuleContext {
-		public ExprContext expr() {
-			return GetRuleContext<ExprContext>(0);
-		}
 		public CondContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_cond; } }
+	 
+		public CondContext() { }
+		public virtual void CopyFrom(CondContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class CondWrappedContext : CondContext {
+		public ExprContext expr() {
+			return GetRuleContext<ExprContext>(0);
+		}
+		public CondWrappedContext(CondContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterCond(this);
+			if (typedListener != null) typedListener.EnterCondWrapped(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitCond(this);
+			if (typedListener != null) typedListener.ExitCondWrapped(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCond(this);
+			if (typedVisitor != null) return typedVisitor.VisitCondWrapped(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class CondCleanContext : CondContext {
+		public ExprContext expr() {
+			return GetRuleContext<ExprContext>(0);
+		}
+		public CondCleanContext(CondContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterCondClean(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitCondClean(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCondClean(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -704,138 +747,28 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public CondContext cond() {
 		CondContext _localctx = new CondContext(_ctx, State);
-		EnterRule(_localctx, 16, RULE_cond);
+		EnterRule(_localctx, 6, RULE_cond);
 		try {
-			State = 109;
+			State = 105;
 			_errHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(_input,7,_ctx) ) {
+			switch ( Interpreter.AdaptivePredict(_input,8,_ctx) ) {
 			case 1:
+				_localctx = new CondWrappedContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 104; Match(T__12);
-				State = 105; expr();
-				State = 106; Match(T__13);
+				State = 100; Match(T__10);
+				State = 101; expr();
+				State = 102; Match(T__11);
 				}
 				break;
 
 			case 2:
+				_localctx = new CondCleanContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 108; expr();
+				State = 104; expr();
 				}
 				break;
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class WhileContext : ParserRuleContext {
-		public CondContext cond() {
-			return GetRuleContext<CondContext>(0);
-		}
-		public StatContext stat() {
-			return GetRuleContext<StatContext>(0);
-		}
-		public WhileContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_while; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterWhile(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitWhile(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitWhile(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public WhileContext @while() {
-		WhileContext _localctx = new WhileContext(_ctx, State);
-		EnterRule(_localctx, 18, RULE_while);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 111; Match(T__14);
-			State = 112; cond();
-			State = 113; stat();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class ForContext : ParserRuleContext {
-		public ExprContext[] expr() {
-			return GetRuleContexts<ExprContext>();
-		}
-		public ExprContext expr(int i) {
-			return GetRuleContext<ExprContext>(i);
-		}
-		public CondContext cond() {
-			return GetRuleContext<CondContext>(0);
-		}
-		public StatContext stat() {
-			return GetRuleContext<StatContext>(0);
-		}
-		public ForContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_for; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterFor(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitFor(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitFor(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public ForContext @for() {
-		ForContext _localctx = new ForContext(_ctx, State);
-		EnterRule(_localctx, 20, RULE_for);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 115; Match(T__15);
-			State = 116; Match(T__12);
-			State = 117; expr();
-			State = 118; Match(T__0);
-			State = 119; cond();
-			State = 120; Match(T__0);
-			State = 121; expr();
-			State = 122; Match(T__13);
-			State = 123; stat();
 			}
 		}
 		catch (RecognitionException re) {
@@ -850,37 +783,93 @@ public partial class PLC_Lab7_exprParser : Parser {
 	}
 
 	public partial class ExprContext : ParserRuleContext {
+		public ExprContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_expr; } }
+	 
+		public ExprContext() { }
+		public virtual void CopyFrom(ExprContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class ExprWithValueContext : ExprContext {
 		public ValuesContext values() {
 			return GetRuleContext<ValuesContext>(0);
 		}
 		public OperationContext operation() {
 			return GetRuleContext<OperationContext>(0);
 		}
-		public AssignmentContext assignment() {
-			return GetRuleContext<AssignmentContext>(0);
-		}
-		public UnaryContext unary() {
-			return GetRuleContext<UnaryContext>(0);
-		}
-		public ExprContext expr() {
-			return GetRuleContext<ExprContext>(0);
-		}
-		public ExprContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_expr; } }
+		public ExprWithValueContext(ExprContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterExpr(this);
+			if (typedListener != null) typedListener.EnterExprWithValue(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitExpr(this);
+			if (typedListener != null) typedListener.ExitExprWithValue(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitExpr(this);
+			if (typedVisitor != null) return typedVisitor.VisitExprWithValue(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class AssignContext : ExprContext {
+		public AssignmentContext assignment() {
+			return GetRuleContext<AssignmentContext>(0);
+		}
+		public AssignContext(ExprContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterAssign(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitAssign(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssign(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class UnarContext : ExprContext {
+		public UnaryContext unary() {
+			return GetRuleContext<UnaryContext>(0);
+		}
+		public UnarContext(ExprContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterUnar(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitUnar(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnar(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class ExprWrappedContext : ExprContext {
+		public ExprContext expr() {
+			return GetRuleContext<ExprContext>(0);
+		}
+		public ExprWrappedContext(ExprContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterExprWrapped(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitExprWrapped(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExprWrapped(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -888,22 +877,23 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public ExprContext expr() {
 		ExprContext _localctx = new ExprContext(_ctx, State);
-		EnterRule(_localctx, 22, RULE_expr);
+		EnterRule(_localctx, 8, RULE_expr);
 		int _la;
 		try {
-			State = 135;
+			State = 117;
 			_errHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(_input,9,_ctx) ) {
+			switch ( Interpreter.AdaptivePredict(_input,10,_ctx) ) {
 			case 1:
+				_localctx = new ExprWithValueContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 125; values();
-				State = 127;
+				State = 107; values();
+				State = 109;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BIN_AR_MUL) | (1L << BIN_AR_ADD) | (1L << LOG_OR) | (1L << LOG_AND) | (1L << CMP) | (1L << REL))) != 0)) {
 					{
-					State = 126; operation();
+					State = 108; operation();
 					}
 				}
 
@@ -911,25 +901,28 @@ public partial class PLC_Lab7_exprParser : Parser {
 				break;
 
 			case 2:
+				_localctx = new AssignContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 129; assignment();
+				State = 111; assignment();
 				}
 				break;
 
 			case 3:
+				_localctx = new UnarContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
-				State = 130; unary();
+				State = 112; unary();
 				}
 				break;
 
 			case 4:
+				_localctx = new ExprWrappedContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 131; Match(T__12);
-				State = 132; expr();
-				State = 133; Match(T__13);
+				State = 113; Match(T__10);
+				State = 114; expr();
+				State = 115; Match(T__11);
 				}
 				break;
 			}
@@ -974,23 +967,23 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public UnaryContext unary() {
 		UnaryContext _localctx = new UnaryContext(_ctx, State);
-		EnterRule(_localctx, 24, RULE_unary);
+		EnterRule(_localctx, 10, RULE_unary);
 		try {
-			State = 141;
+			State = 123;
 			_errHandler.Sync(this);
 			switch (_input.La(1)) {
 			case NEG_OP:
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 137; Match(NEG_OP);
-				State = 138; expr();
+				State = 119; Match(NEG_OP);
+				State = 120; expr();
 				}
 				break;
 			case UN_MIN:
 				EnterOuterAlt(_localctx, 2);
 				{
-				State = 139; Match(UN_MIN);
-				State = 140; expr();
+				State = 121; Match(UN_MIN);
+				State = 122; expr();
 				}
 				break;
 			default:
@@ -1010,11 +1003,16 @@ public partial class PLC_Lab7_exprParser : Parser {
 
 	public partial class AssignmentContext : ParserRuleContext {
 		public ITerminalNode ID() { return GetToken(PLC_Lab7_exprParser.ID, 0); }
-		public ITerminalNode ASSIGN() { return GetToken(PLC_Lab7_exprParser.ASSIGN, 0); }
-		public ExprContext expr() {
-			return GetRuleContext<ExprContext>(0);
+		public ITerminalNode[] ASSIGN() { return GetTokens(PLC_Lab7_exprParser.ASSIGN); }
+		public ITerminalNode ASSIGN(int i) {
+			return GetToken(PLC_Lab7_exprParser.ASSIGN, i);
 		}
-		public ITerminalNode UN_MIN() { return GetToken(PLC_Lab7_exprParser.UN_MIN, 0); }
+		public ValuesContext[] values() {
+			return GetRuleContexts<ValuesContext>();
+		}
+		public ValuesContext values(int i) {
+			return GetRuleContext<ValuesContext>(i);
+		}
 		public AssignmentContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -1038,22 +1036,31 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public AssignmentContext assignment() {
 		AssignmentContext _localctx = new AssignmentContext(_ctx, State);
-		EnterRule(_localctx, 26, RULE_assignment);
+		EnterRule(_localctx, 12, RULE_assignment);
 		try {
+			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 143; Match(ID);
-			State = 144; Match(ASSIGN);
-			State = 146;
+			State = 125; Match(ID);
+			State = 126; Match(ASSIGN);
+			State = 127; values();
+			State = 133;
 			_errHandler.Sync(this);
-			switch ( Interpreter.AdaptivePredict(_input,11,_ctx) ) {
-			case 1:
-				{
-				State = 145; Match(UN_MIN);
+			_alt = Interpreter.AdaptivePredict(_input,12,_ctx);
+			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.InvalidAltNumber ) {
+				if ( _alt==1 ) {
+					{
+					{
+					State = 128; Match(T__1);
+					State = 129; Match(ASSIGN);
+					State = 130; values();
+					}
+					} 
 				}
-				break;
+				State = 135;
+				_errHandler.Sync(this);
+				_alt = Interpreter.AdaptivePredict(_input,12,_ctx);
 			}
-			State = 148; expr();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1096,12 +1103,12 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public ValuesContext values() {
 		ValuesContext _localctx = new ValuesContext(_ctx, State);
-		EnterRule(_localctx, 28, RULE_values);
+		EnterRule(_localctx, 14, RULE_values);
 		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 150;
+			State = 136;
 			_la = _input.La(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ID) | (1L << INT) | (1L << BOOL) | (1L << FLOAT) | (1L << STRING))) != 0)) ) {
 			_errHandler.RecoverInline(this);
@@ -1156,12 +1163,12 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public OperationContext operation() {
 		OperationContext _localctx = new OperationContext(_ctx, State);
-		EnterRule(_localctx, 30, RULE_operation);
+		EnterRule(_localctx, 16, RULE_operation);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 152; @operator();
-			State = 153; expr();
+			State = 138; @operator();
+			State = 139; expr();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1176,28 +1183,116 @@ public partial class PLC_Lab7_exprParser : Parser {
 	}
 
 	public partial class OperatorContext : ParserRuleContext {
-		public ITerminalNode BIN_AR_ADD() { return GetToken(PLC_Lab7_exprParser.BIN_AR_ADD, 0); }
-		public ITerminalNode BIN_AR_MUL() { return GetToken(PLC_Lab7_exprParser.BIN_AR_MUL, 0); }
-		public ITerminalNode CMP() { return GetToken(PLC_Lab7_exprParser.CMP, 0); }
-		public ITerminalNode REL() { return GetToken(PLC_Lab7_exprParser.REL, 0); }
-		public ITerminalNode LOG_OR() { return GetToken(PLC_Lab7_exprParser.LOG_OR, 0); }
-		public ITerminalNode LOG_AND() { return GetToken(PLC_Lab7_exprParser.LOG_AND, 0); }
 		public OperatorContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
 		}
 		public override int RuleIndex { get { return RULE_operator; } }
+	 
+		public OperatorContext() { }
+		public virtual void CopyFrom(OperatorContext context) {
+			base.CopyFrom(context);
+		}
+	}
+	public partial class BinAddContext : OperatorContext {
+		public ITerminalNode BIN_AR_ADD() { return GetToken(PLC_Lab7_exprParser.BIN_AR_ADD, 0); }
+		public BinAddContext(OperatorContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.EnterOperator(this);
+			if (typedListener != null) typedListener.EnterBinAdd(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
-			if (typedListener != null) typedListener.ExitOperator(this);
+			if (typedListener != null) typedListener.ExitBinAdd(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitOperator(this);
+			if (typedVisitor != null) return typedVisitor.VisitBinAdd(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class BinMulContext : OperatorContext {
+		public ITerminalNode BIN_AR_MUL() { return GetToken(PLC_Lab7_exprParser.BIN_AR_MUL, 0); }
+		public BinMulContext(OperatorContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterBinMul(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitBinMul(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBinMul(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class CmpContext : OperatorContext {
+		public ITerminalNode CMP() { return GetToken(PLC_Lab7_exprParser.CMP, 0); }
+		public CmpContext(OperatorContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterCmp(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitCmp(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCmp(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class RelContext : OperatorContext {
+		public ITerminalNode REL() { return GetToken(PLC_Lab7_exprParser.REL, 0); }
+		public RelContext(OperatorContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterRel(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitRel(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRel(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class LogOrContext : OperatorContext {
+		public ITerminalNode LOG_OR() { return GetToken(PLC_Lab7_exprParser.LOG_OR, 0); }
+		public LogOrContext(OperatorContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterLogOr(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitLogOr(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLogOr(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+	public partial class LogAndContext : OperatorContext {
+		public ITerminalNode LOG_AND() { return GetToken(PLC_Lab7_exprParser.LOG_AND, 0); }
+		public LogAndContext(OperatorContext context) { CopyFrom(context); }
+		public override void EnterRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.EnterLogAnd(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			IPLC_Lab7_exprListener typedListener = listener as IPLC_Lab7_exprListener;
+			if (typedListener != null) typedListener.ExitLogAnd(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IPLC_Lab7_exprVisitor<TResult> typedVisitor = visitor as IPLC_Lab7_exprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLogAnd(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -1205,23 +1300,55 @@ public partial class PLC_Lab7_exprParser : Parser {
 	[RuleVersion(0)]
 	public OperatorContext @operator() {
 		OperatorContext _localctx = new OperatorContext(_ctx, State);
-		EnterRule(_localctx, 32, RULE_operator);
-		int _la;
+		EnterRule(_localctx, 18, RULE_operator);
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 155;
-			_la = _input.La(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BIN_AR_MUL) | (1L << BIN_AR_ADD) | (1L << LOG_OR) | (1L << LOG_AND) | (1L << CMP) | (1L << REL))) != 0)) ) {
-			_errHandler.RecoverInline(this);
-			} else {
-				if (_input.La(1) == TokenConstants.Eof) {
-					matchedEOF = true;
+			State = 147;
+			_errHandler.Sync(this);
+			switch (_input.La(1)) {
+			case BIN_AR_ADD:
+				_localctx = new BinAddContext(_localctx);
+				EnterOuterAlt(_localctx, 1);
+				{
+				State = 141; Match(BIN_AR_ADD);
 				}
-
-				_errHandler.ReportMatch(this);
-				Consume();
-			}
+				break;
+			case BIN_AR_MUL:
+				_localctx = new BinMulContext(_localctx);
+				EnterOuterAlt(_localctx, 2);
+				{
+				State = 142; Match(BIN_AR_MUL);
+				}
+				break;
+			case CMP:
+				_localctx = new CmpContext(_localctx);
+				EnterOuterAlt(_localctx, 3);
+				{
+				State = 143; Match(CMP);
+				}
+				break;
+			case REL:
+				_localctx = new RelContext(_localctx);
+				EnterOuterAlt(_localctx, 4);
+				{
+				State = 144; Match(REL);
+				}
+				break;
+			case LOG_OR:
+				_localctx = new LogOrContext(_localctx);
+				EnterOuterAlt(_localctx, 5);
+				{
+				State = 145; Match(LOG_OR);
+				}
+				break;
+			case LOG_AND:
+				_localctx = new LogAndContext(_localctx);
+				EnterOuterAlt(_localctx, 6);
+				{
+				State = 146; Match(LOG_AND);
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1236,61 +1363,61 @@ public partial class PLC_Lab7_exprParser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3!\xA0\x4\x2\t\x2"+
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3!\x98\x4\x2\t\x2"+
 		"\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t"+
-		"\t\x4\n\t\n\x4\v\t\v\x4\f\t\f\x4\r\t\r\x4\xE\t\xE\x4\xF\t\xF\x4\x10\t"+
-		"\x10\x4\x11\t\x11\x4\x12\t\x12\x3\x2\x6\x2&\n\x2\r\x2\xE\x2\'\x3\x3\x3"+
-		"\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3"+
-		"\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3;\n\x3\x3\x4\x3\x4\x3\x4\x3\x4\a\x4\x41"+
-		"\n\x4\f\x4\xE\x4\x44\v\x4\x3\x5\x3\x5\x3\x6\x3\x6\x3\x6\x3\x6\a\x6L\n"+
-		"\x6\f\x6\xE\x6O\v\x6\x3\a\x3\a\x3\a\x3\a\a\aU\n\a\f\a\xE\aX\v\a\x3\b\x3"+
-		"\b\x3\b\a\b]\n\b\f\b\xE\b`\v\b\x3\b\x3\b\x3\t\x3\t\x3\t\x3\t\x3\t\x5\t"+
-		"i\n\t\x3\n\x3\n\x3\n\x3\n\x3\n\x5\np\n\n\x3\v\x3\v\x3\v\x3\v\x3\f\x3\f"+
-		"\x3\f\x3\f\x3\f\x3\f\x3\f\x3\f\x3\f\x3\f\x3\r\x3\r\x5\r\x82\n\r\x3\r\x3"+
-		"\r\x3\r\x3\r\x3\r\x3\r\x5\r\x8A\n\r\x3\xE\x3\xE\x3\xE\x3\xE\x5\xE\x90"+
-		"\n\xE\x3\xF\x3\xF\x3\xF\x5\xF\x95\n\xF\x3\xF\x3\xF\x3\x10\x3\x10\x3\x11"+
-		"\x3\x11\x3\x11\x3\x12\x3\x12\x3\x12\x2\x2\x2\x13\x2\x2\x4\x2\x6\x2\b\x2"+
-		"\n\x2\f\x2\xE\x2\x10\x2\x12\x2\x14\x2\x16\x2\x18\x2\x1A\x2\x1C\x2\x1E"+
-		"\x2 \x2\"\x2\x2\x5\x3\x2\x5\b\x3\x2\x13\x17\x3\x2\x1C!\xA3\x2%\x3\x2\x2"+
-		"\x2\x4:\x3\x2\x2\x2\x6<\x3\x2\x2\x2\b\x45\x3\x2\x2\x2\nG\x3\x2\x2\x2\f"+
-		"P\x3\x2\x2\x2\xEY\x3\x2\x2\x2\x10\x63\x3\x2\x2\x2\x12o\x3\x2\x2\x2\x14"+
-		"q\x3\x2\x2\x2\x16u\x3\x2\x2\x2\x18\x89\x3\x2\x2\x2\x1A\x8F\x3\x2\x2\x2"+
-		"\x1C\x91\x3\x2\x2\x2\x1E\x98\x3\x2\x2\x2 \x9A\x3\x2\x2\x2\"\x9D\x3\x2"+
-		"\x2\x2$&\x5\x4\x3\x2%$\x3\x2\x2\x2&\'\x3\x2\x2\x2\'%\x3\x2\x2\x2\'(\x3"+
-		"\x2\x2\x2(\x3\x3\x2\x2\x2);\a\x3\x2\x2*+\x5\x6\x4\x2+,\a\x3\x2\x2,;\x3"+
-		"\x2\x2\x2-.\x5\x18\r\x2./\a\x3\x2\x2/;\x3\x2\x2\x2\x30\x31\x5\n\x6\x2"+
-		"\x31\x32\a\x3\x2\x2\x32;\x3\x2\x2\x2\x33\x34\x5\f\a\x2\x34\x35\a\x3\x2"+
-		"\x2\x35;\x3\x2\x2\x2\x36;\x5\xE\b\x2\x37;\x5\x10\t\x2\x38;\x5\x14\v\x2"+
-		"\x39;\x5\x16\f\x2:)\x3\x2\x2\x2:*\x3\x2\x2\x2:-\x3\x2\x2\x2:\x30\x3\x2"+
-		"\x2\x2:\x33\x3\x2\x2\x2:\x36\x3\x2\x2\x2:\x37\x3\x2\x2\x2:\x38\x3\x2\x2"+
-		"\x2:\x39\x3\x2\x2\x2;\x5\x3\x2\x2\x2<=\x5\b\x5\x2=\x42\a\x13\x2\x2>?\a"+
-		"\x4\x2\x2?\x41\a\x13\x2\x2@>\x3\x2\x2\x2\x41\x44\x3\x2\x2\x2\x42@\x3\x2"+
-		"\x2\x2\x42\x43\x3\x2\x2\x2\x43\a\x3\x2\x2\x2\x44\x42\x3\x2\x2\x2\x45\x46"+
-		"\t\x2\x2\x2\x46\t\x3\x2\x2\x2GH\a\t\x2\x2HM\a\x13\x2\x2IJ\a\x4\x2\x2J"+
-		"L\a\x13\x2\x2KI\x3\x2\x2\x2LO\x3\x2\x2\x2MK\x3\x2\x2\x2MN\x3\x2\x2\x2"+
-		"N\v\x3\x2\x2\x2OM\x3\x2\x2\x2PQ\a\n\x2\x2QV\x5\x18\r\x2RS\a\x4\x2\x2S"+
-		"U\x5\x18\r\x2TR\x3\x2\x2\x2UX\x3\x2\x2\x2VT\x3\x2\x2\x2VW\x3\x2\x2\x2"+
-		"W\r\x3\x2\x2\x2XV\x3\x2\x2\x2YZ\a\v\x2\x2Z^\x5\x4\x3\x2[]\x5\x4\x3\x2"+
-		"\\[\x3\x2\x2\x2]`\x3\x2\x2\x2^\\\x3\x2\x2\x2^_\x3\x2\x2\x2_\x61\x3\x2"+
-		"\x2\x2`^\x3\x2\x2\x2\x61\x62\a\f\x2\x2\x62\xF\x3\x2\x2\x2\x63\x64\a\r"+
-		"\x2\x2\x64\x65\x5\x12\n\x2\x65h\x5\x4\x3\x2\x66g\a\xE\x2\x2gi\x5\x4\x3"+
-		"\x2h\x66\x3\x2\x2\x2hi\x3\x2\x2\x2i\x11\x3\x2\x2\x2jk\a\xF\x2\x2kl\x5"+
-		"\x18\r\x2lm\a\x10\x2\x2mp\x3\x2\x2\x2np\x5\x18\r\x2oj\x3\x2\x2\x2on\x3"+
-		"\x2\x2\x2p\x13\x3\x2\x2\x2qr\a\x11\x2\x2rs\x5\x12\n\x2st\x5\x4\x3\x2t"+
-		"\x15\x3\x2\x2\x2uv\a\x12\x2\x2vw\a\xF\x2\x2wx\x5\x18\r\x2xy\a\x3\x2\x2"+
-		"yz\x5\x12\n\x2z{\a\x3\x2\x2{|\x5\x18\r\x2|}\a\x10\x2\x2}~\x5\x4\x3\x2"+
-		"~\x17\x3\x2\x2\x2\x7F\x81\x5\x1E\x10\x2\x80\x82\x5 \x11\x2\x81\x80\x3"+
-		"\x2\x2\x2\x81\x82\x3\x2\x2\x2\x82\x8A\x3\x2\x2\x2\x83\x8A\x5\x1C\xF\x2"+
-		"\x84\x8A\x5\x1A\xE\x2\x85\x86\a\xF\x2\x2\x86\x87\x5\x18\r\x2\x87\x88\a"+
-		"\x10\x2\x2\x88\x8A\x3\x2\x2\x2\x89\x7F\x3\x2\x2\x2\x89\x83\x3\x2\x2\x2"+
-		"\x89\x84\x3\x2\x2\x2\x89\x85\x3\x2\x2\x2\x8A\x19\x3\x2\x2\x2\x8B\x8C\a"+
-		"\x1B\x2\x2\x8C\x90\x5\x18\r\x2\x8D\x8E\a\x1A\x2\x2\x8E\x90\x5\x18\r\x2"+
-		"\x8F\x8B\x3\x2\x2\x2\x8F\x8D\x3\x2\x2\x2\x90\x1B\x3\x2\x2\x2\x91\x92\a"+
-		"\x13\x2\x2\x92\x94\a\x19\x2\x2\x93\x95\a\x1A\x2\x2\x94\x93\x3\x2\x2\x2"+
-		"\x94\x95\x3\x2\x2\x2\x95\x96\x3\x2\x2\x2\x96\x97\x5\x18\r\x2\x97\x1D\x3"+
-		"\x2\x2\x2\x98\x99\t\x3\x2\x2\x99\x1F\x3\x2\x2\x2\x9A\x9B\x5\"\x12\x2\x9B"+
-		"\x9C\x5\x18\r\x2\x9C!\x3\x2\x2\x2\x9D\x9E\t\x4\x2\x2\x9E#\x3\x2\x2\x2"+
-		"\xE\':\x42MV^ho\x81\x89\x8F\x94";
+		"\t\x4\n\t\n\x4\v\t\v\x3\x2\x6\x2\x18\n\x2\r\x2\xE\x2\x19\x3\x3\x3\x3\x3"+
+		"\x3\x3\x3\x3\x3\a\x3!\n\x3\f\x3\xE\x3$\v\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3"+
+		"\x3\x3\x3\x3\x3\x3\x3\x3\x3\a\x3/\n\x3\f\x3\xE\x3\x32\v\x3\x3\x3\x3\x3"+
+		"\x3\x3\x3\x3\x3\x3\a\x3\x39\n\x3\f\x3\xE\x3<\v\x3\x3\x3\x3\x3\x3\x3\x3"+
+		"\x3\x3\x3\a\x3\x43\n\x3\f\x3\xE\x3\x46\v\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3"+
+		"\x3\x3\x3\x3\x3\x5\x3O\n\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3"+
+		"\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x3\x5\x3_\n\x3\x3\x4\x3\x4\x3"+
+		"\x4\x3\x4\x5\x4\x65\n\x4\x3\x5\x3\x5\x3\x5\x3\x5\x3\x5\x5\x5l\n\x5\x3"+
+		"\x6\x3\x6\x5\x6p\n\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x3\x6\x5\x6x\n\x6"+
+		"\x3\a\x3\a\x3\a\x3\a\x5\a~\n\a\x3\b\x3\b\x3\b\x3\b\x3\b\x3\b\a\b\x86\n"+
+		"\b\f\b\xE\b\x89\v\b\x3\t\x3\t\x3\n\x3\n\x3\n\x3\v\x3\v\x3\v\x3\v\x3\v"+
+		"\x3\v\x5\v\x96\n\v\x3\v\x2\x2\x2\f\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE"+
+		"\x2\x10\x2\x12\x2\x14\x2\x2\x3\x3\x2\x13\x17\xAA\x2\x17\x3\x2\x2\x2\x4"+
+		"^\x3\x2\x2\x2\x6\x64\x3\x2\x2\x2\bk\x3\x2\x2\x2\nw\x3\x2\x2\x2\f}\x3\x2"+
+		"\x2\x2\xE\x7F\x3\x2\x2\x2\x10\x8A\x3\x2\x2\x2\x12\x8C\x3\x2\x2\x2\x14"+
+		"\x95\x3\x2\x2\x2\x16\x18\x5\x4\x3\x2\x17\x16\x3\x2\x2\x2\x18\x19\x3\x2"+
+		"\x2\x2\x19\x17\x3\x2\x2\x2\x19\x1A\x3\x2\x2\x2\x1A\x3\x3\x2\x2\x2\x1B"+
+		"_\a\x3\x2\x2\x1C\x1D\x5\x6\x4\x2\x1D\"\a\x13\x2\x2\x1E\x1F\a\x4\x2\x2"+
+		"\x1F!\a\x13\x2\x2 \x1E\x3\x2\x2\x2!$\x3\x2\x2\x2\" \x3\x2\x2\x2\"#\x3"+
+		"\x2\x2\x2#%\x3\x2\x2\x2$\"\x3\x2\x2\x2%&\a\x3\x2\x2&_\x3\x2\x2\x2\'(\x5"+
+		"\n\x6\x2()\a\x3\x2\x2)_\x3\x2\x2\x2*+\a\x5\x2\x2+\x30\a\x13\x2\x2,-\a"+
+		"\x4\x2\x2-/\a\x13\x2\x2.,\x3\x2\x2\x2/\x32\x3\x2\x2\x2\x30.\x3\x2\x2\x2"+
+		"\x30\x31\x3\x2\x2\x2\x31\x33\x3\x2\x2\x2\x32\x30\x3\x2\x2\x2\x33_\a\x3"+
+		"\x2\x2\x34\x35\a\x6\x2\x2\x35:\x5\n\x6\x2\x36\x37\a\x4\x2\x2\x37\x39\x5"+
+		"\n\x6\x2\x38\x36\x3\x2\x2\x2\x39<\x3\x2\x2\x2:\x38\x3\x2\x2\x2:;\x3\x2"+
+		"\x2\x2;=\x3\x2\x2\x2<:\x3\x2\x2\x2=>\a\x3\x2\x2>_\x3\x2\x2\x2?@\a\a\x2"+
+		"\x2@\x44\x5\x4\x3\x2\x41\x43\x5\x4\x3\x2\x42\x41\x3\x2\x2\x2\x43\x46\x3"+
+		"\x2\x2\x2\x44\x42\x3\x2\x2\x2\x44\x45\x3\x2\x2\x2\x45G\x3\x2\x2\x2\x46"+
+		"\x44\x3\x2\x2\x2GH\a\b\x2\x2H_\x3\x2\x2\x2IJ\a\t\x2\x2JK\x5\b\x5\x2KN"+
+		"\x5\x4\x3\x2LM\a\n\x2\x2MO\x5\x4\x3\x2NL\x3\x2\x2\x2NO\x3\x2\x2\x2O_\x3"+
+		"\x2\x2\x2PQ\a\v\x2\x2QR\x5\b\x5\x2RS\x5\x4\x3\x2S_\x3\x2\x2\x2TU\a\f\x2"+
+		"\x2UV\a\r\x2\x2VW\x5\n\x6\x2WX\a\x3\x2\x2XY\x5\b\x5\x2YZ\a\x3\x2\x2Z["+
+		"\x5\n\x6\x2[\\\a\xE\x2\x2\\]\x5\x4\x3\x2]_\x3\x2\x2\x2^\x1B\x3\x2\x2\x2"+
+		"^\x1C\x3\x2\x2\x2^\'\x3\x2\x2\x2^*\x3\x2\x2\x2^\x34\x3\x2\x2\x2^?\x3\x2"+
+		"\x2\x2^I\x3\x2\x2\x2^P\x3\x2\x2\x2^T\x3\x2\x2\x2_\x5\x3\x2\x2\x2`\x65"+
+		"\a\xF\x2\x2\x61\x65\a\x10\x2\x2\x62\x65\a\x11\x2\x2\x63\x65\a\x12\x2\x2"+
+		"\x64`\x3\x2\x2\x2\x64\x61\x3\x2\x2\x2\x64\x62\x3\x2\x2\x2\x64\x63\x3\x2"+
+		"\x2\x2\x65\a\x3\x2\x2\x2\x66g\a\r\x2\x2gh\x5\n\x6\x2hi\a\xE\x2\x2il\x3"+
+		"\x2\x2\x2jl\x5\n\x6\x2k\x66\x3\x2\x2\x2kj\x3\x2\x2\x2l\t\x3\x2\x2\x2m"+
+		"o\x5\x10\t\x2np\x5\x12\n\x2on\x3\x2\x2\x2op\x3\x2\x2\x2px\x3\x2\x2\x2"+
+		"qx\x5\xE\b\x2rx\x5\f\a\x2st\a\r\x2\x2tu\x5\n\x6\x2uv\a\xE\x2\x2vx\x3\x2"+
+		"\x2\x2wm\x3\x2\x2\x2wq\x3\x2\x2\x2wr\x3\x2\x2\x2ws\x3\x2\x2\x2x\v\x3\x2"+
+		"\x2\x2yz\a\x1B\x2\x2z~\x5\n\x6\x2{|\a\x1A\x2\x2|~\x5\n\x6\x2}y\x3\x2\x2"+
+		"\x2}{\x3\x2\x2\x2~\r\x3\x2\x2\x2\x7F\x80\a\x13\x2\x2\x80\x81\a\x19\x2"+
+		"\x2\x81\x87\x5\x10\t\x2\x82\x83\a\x4\x2\x2\x83\x84\a\x19\x2\x2\x84\x86"+
+		"\x5\x10\t\x2\x85\x82\x3\x2\x2\x2\x86\x89\x3\x2\x2\x2\x87\x85\x3\x2\x2"+
+		"\x2\x87\x88\x3\x2\x2\x2\x88\xF\x3\x2\x2\x2\x89\x87\x3\x2\x2\x2\x8A\x8B"+
+		"\t\x2\x2\x2\x8B\x11\x3\x2\x2\x2\x8C\x8D\x5\x14\v\x2\x8D\x8E\x5\n\x6\x2"+
+		"\x8E\x13\x3\x2\x2\x2\x8F\x96\a\x1D\x2\x2\x90\x96\a\x1C\x2\x2\x91\x96\a"+
+		" \x2\x2\x92\x96\a!\x2\x2\x93\x96\a\x1E\x2\x2\x94\x96\a\x1F\x2\x2\x95\x8F"+
+		"\x3\x2\x2\x2\x95\x90\x3\x2\x2\x2\x95\x91\x3\x2\x2\x2\x95\x92\x3\x2\x2"+
+		"\x2\x95\x93\x3\x2\x2\x2\x95\x94\x3\x2\x2\x2\x96\x15\x3\x2\x2\x2\x10\x19"+
+		"\"\x30:\x44N^\x64kow}\x87\x95";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());
 }

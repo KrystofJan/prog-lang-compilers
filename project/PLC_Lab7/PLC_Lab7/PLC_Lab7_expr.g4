@@ -5,65 +5,41 @@ prog:
 	(stat)+;
 
 stat: 	
-	  ';'
-	| types ';'
-	| expr ';'
-	| read ';'
-	| write ';'
-	| statwrap
-	| if
-	| while
-	| for;
+      ';'                                           # sem
+	| dtype ID (',' ID)* ';'                        # declaration
+	| expr ';'                                      # expression
+    | 'read' ID (',' ID)*  ';'                      # read
+	| 'write' expr (',' expr)*  ';'                 # write
+	| '{' stat (stat)* '}'                          # scope
+	| 'if' cond stat ('else' stat)?                 # if
+	| 'while' cond stat                             # whileCyc
+	| 'for' '(' expr  ';' cond ';' expr ')' stat    # forCyc
+    ;
 
-
-types: 	
-	dtype ID (',' ID)* ;
-
-	
 dtype: 	
-	'int' | 'float' | 'bool' | 'string';
-
-
-read: 	
-	'read' ID (',' ID)* ;
-
-
-write: 	
-	'write' expr (',' expr)* ;
-
-
-statwrap: 
-	'{' stat (stat)* '}';
-
-
-if: 	
-	'if' cond stat ('else' stat)? ;
-
+          INT_KW    # int
+        | FLOAT_KW  # float
+        | BOOL_KW   # bool
+        | STRING_KW # string
+        ;
 	
 cond:
-	   '(' expr ')'
-	 | expr;
-
-
-while: 	
-	'while' cond stat;
-
-for: 
-    'for' '(' expr  ';' cond ';' expr ')' stat ;
+	   '(' expr ')' # condWrapped
+	 | expr         # condClean
+	 ;
 
 expr: 	  
-	  values operation?
-	| assignment
-	| unary
-    | '(' expr ')';
-
+	  values operation?         # exprWithValue
+	| assignment                # assign
+	| unary                     # unar
+    | '(' expr ')'              # exprWrapped
+    ;
+    
 unary:
 	NEG_OP expr | UN_MIN expr;
 
-
 assignment: 
-	ID ASSIGN UN_MIN? expr;
-
+	  ID ASSIGN values (',' ASSIGN values)*;
 
 values: 
 	  ID 
@@ -76,13 +52,21 @@ operation:
 	  operator expr;
 
 operator: 
-	  BIN_AR_ADD 
-	| BIN_AR_MUL 
-	| CMP 
-	| REL 
-	| LOG_OR 
-	| LOG_AND ;
+	  BIN_AR_ADD    # binAdd
+	| BIN_AR_MUL    # binMul
+	| CMP           # cmp
+	| REL           # rel
+	| LOG_OR        # logOr
+	| LOG_AND       # logAnd
+	;     
     
+// types
+INT_KW : 'int';
+FLOAT_KW : 'float';
+BOOL_KW : 'bool';
+STRING_KW: 'string';
+
+
 
 // matches
 ID : [a-zA-Z][a-zA-Z0-9_]* ;        // match identifiers

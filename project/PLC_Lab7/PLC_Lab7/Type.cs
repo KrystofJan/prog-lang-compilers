@@ -3,7 +3,5 @@
 public enum Type {
 	INT,
 	FLOAT,
-	BOOLEAN,
-	STRING,
 	ERROR
 }
