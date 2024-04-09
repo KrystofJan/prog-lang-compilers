@@ -13,7 +13,11 @@ stat:
 	| statwrap
 	| if
 	| while
-	| for;
+	| for
+	| ternary;
+
+ternary: 
+    cond '?' expr ':' expr;
 
 types: 	
 	dtype ID (',' ID)* ;
@@ -45,18 +49,39 @@ for:
     'for' '(' expr  ';' cond ';' expr ')' stat ;
 
 expr: 	  
-	  exprMath          # math
-	| assignment        # ass
-	| unary             # unar
-    | '(' expr ')'      # exprWrap
+	  assignment  
     ; 
 
 unary:
 	NEG_OP expr | UN_MIN expr;
 
 assignment: 
-	ID ASSIGN UN_MIN? expr;
+	ID ASSIGN assignment  # assExpr
+	| assignmentTail    #assTail
+	;
 
+assignmentTail: 
+    tail
+    | mathOr;
+
+mathOr: 
+    mathOr LOG_OR orTail    # orExpr
+    | orTail                #tailOr
+    ;
+
+orTail:
+    tail 
+    | mathAnd;
+
+mathAnd:
+    mathAnd LOG_AND andTail # andExpr
+    | andTail               # tailAnd
+    ;
+
+andTail: 
+    tail
+    | mathRel;
+    
 values: 
 	  ID    # identity
   	| INT   # integerVal
@@ -65,18 +90,49 @@ values:
   	| STRING # stringVal
   	;
 
-exprMath: 
-      values                # mathValue
-    | mathOp                # mathExpr
+mathAdd: 
+      mathAdd op=(ADD_OP | MIN_OP | CONCAT_OP) addTail  # addExpr
+    | addTail                                           # tailAdd
     ;
 
-mathOp: 
-      values op=(ADD_OP | MIN_OP | CONCAT_OP) expr  # mathAdd
-    | values op=(	MUL_OP | DIV_OP | MOD_OP) expr  # mathMul
-    | values op=(EQ | NEQ) expr                     # mathCmp
-    | values op=(CMP_LT | CMP_MT) expr              # mathRel
-    | values LOG_OR expr                            # mathOr
-    | values LOG_AND expr                           # mathAnd
+addTail: 
+    tail
+    | mathMul
+    ;
+
+mathMul: 
+    mathMul op=(	MUL_OP | DIV_OP | MOD_OP) mulTail   # mulExpr
+    | mulTail                                           # tailMul
+    ;
+
+mulTail:
+    tail;
+    
+
+mathCmp: 
+    mathCmp op=(EQ | NEQ) compTail   # cmpExpr
+    | compTail                      # cmpTail
+    ;
+    
+compTail: 
+    tail
+    | mathRel
+    ;
+
+mathRel: 
+    mathRel op=(CMP_LT | CMP_MT) relTail
+    | relTail
+    ;
+
+relTail: 
+    tail
+    | mathAdd
+    ;   
+
+tail:       
+    values          # mathValue
+    | '(' expr ')'  # exprWrap
+    | unary         # unar
     ;
     
 

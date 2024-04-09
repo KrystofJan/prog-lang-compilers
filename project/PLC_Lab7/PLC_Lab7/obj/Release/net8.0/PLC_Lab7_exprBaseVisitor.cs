@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from /home/zahry/school/pjp/project/PLC_Lab7/PLC_Lab7/PLC_Lab7_expr.g4 by ANTLR 4.6.6
+// Generated from C:\Users\zahry\pjp\project\PLC_Lab7\PLC_Lab7\PLC_Lab7_expr.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -35,8 +35,8 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IPLC_Lab7_exprVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>math</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Visit a parse tree produced by the <c>assExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignment"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -44,11 +44,11 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitMath([NotNull] PLC_Lab7_exprParser.MathContext context) { return VisitChildren(context); }
+	public virtual Result VisitAssExpr([NotNull] PLC_Lab7_exprParser.AssExprContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>ass</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Visit a parse tree produced by the <c>assTail</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignment"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -56,11 +56,11 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitAss([NotNull] PLC_Lab7_exprParser.AssContext context) { return VisitChildren(context); }
+	public virtual Result VisitAssTail([NotNull] PLC_Lab7_exprParser.AssTailContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>unar</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Visit a parse tree produced by the <c>orExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -68,11 +68,11 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitUnar([NotNull] PLC_Lab7_exprParser.UnarContext context) { return VisitChildren(context); }
+	public virtual Result VisitOrExpr([NotNull] PLC_Lab7_exprParser.OrExprContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>exprWrap</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Visit a parse tree produced by the <c>tailOr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -80,7 +80,31 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context) { return VisitChildren(context); }
+	public virtual Result VisitTailOr([NotNull] PLC_Lab7_exprParser.TailOrContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>andExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitAndExpr([NotNull] PLC_Lab7_exprParser.AndExprContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>tailAnd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitTailAnd([NotNull] PLC_Lab7_exprParser.TailAndContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>identity</c>
@@ -143,6 +167,114 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	public virtual Result VisitStringVal([NotNull] PLC_Lab7_exprParser.StringValContext context) { return VisitChildren(context); }
 
 	/// <summary>
+	/// Visit a parse tree produced by the <c>addExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAdd"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitAddExpr([NotNull] PLC_Lab7_exprParser.AddExprContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>tailAdd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAdd"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitTailAdd([NotNull] PLC_Lab7_exprParser.TailAddContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mulExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMulExpr([NotNull] PLC_Lab7_exprParser.MulExprContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>tailMul</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitTailMul([NotNull] PLC_Lab7_exprParser.TailMulContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>cmpExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitCmpExpr([NotNull] PLC_Lab7_exprParser.CmpExprContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>cmpTail</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitCmpTail([NotNull] PLC_Lab7_exprParser.CmpTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>mathValue</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMathValue([NotNull] PLC_Lab7_exprParser.MathValueContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>exprWrap</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>unar</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitUnar([NotNull] PLC_Lab7_exprParser.UnarContext context) { return VisitChildren(context); }
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.prog"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -163,6 +295,17 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	public virtual Result VisitStat([NotNull] PLC_Lab7_exprParser.StatContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.ternary"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitTernary([NotNull] PLC_Lab7_exprParser.TernaryContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.types"/>.
@@ -297,8 +440,63 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	public virtual Result VisitAssignment([NotNull] PLC_Lab7_exprParser.AssignmentContext context) { return VisitChildren(context); }
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.assignmentTail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitAssignmentTail([NotNull] PLC_Lab7_exprParser.AssignmentTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathOr"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMathOr([NotNull] PLC_Lab7_exprParser.MathOrContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.orTail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitOrTail([NotNull] PLC_Lab7_exprParser.OrTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMathAnd([NotNull] PLC_Lab7_exprParser.MathAndContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.andTail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitAndTail([NotNull] PLC_Lab7_exprParser.AndTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
 	/// Visit a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.exprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignmentassignmentmathOrmathOrmathAndmathAndvaluesvaluesvaluesvaluesvaluesmathAddmathAddmathMulmathMulmathCmpmathCmptailtailtail"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -309,7 +507,7 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	public virtual Result VisitValues([NotNull] PLC_Lab7_exprParser.ValuesContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.operation"/>.
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathAdd"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -317,10 +515,10 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitOperation([NotNull] PLC_Lab7_exprParser.OperationContext context) { return VisitChildren(context); }
+	public virtual Result VisitMathAdd([NotNull] PLC_Lab7_exprParser.MathAddContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.addTail"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -328,6 +526,83 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitOperator([NotNull] PLC_Lab7_exprParser.OperatorContext context) { return VisitChildren(context); }
+	public virtual Result VisitAddTail([NotNull] PLC_Lab7_exprParser.AddTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMathMul([NotNull] PLC_Lab7_exprParser.MathMulContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mulTail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMulTail([NotNull] PLC_Lab7_exprParser.MulTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMathCmp([NotNull] PLC_Lab7_exprParser.MathCmpContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.compTail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitCompTail([NotNull] PLC_Lab7_exprParser.CompTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathRel"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitMathRel([NotNull] PLC_Lab7_exprParser.MathRelContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.relTail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitRelTail([NotNull] PLC_Lab7_exprParser.RelTailContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitTail([NotNull] PLC_Lab7_exprParser.TailContext context) { return VisitChildren(context); }
 }
 } // namespace PLC_Lab7

@@ -8,3 +8,5 @@ a = c;
 c + 1.1;
 bool isWorking;
 isWorking = false;
+
+(isWorking) ? 22 : 23;

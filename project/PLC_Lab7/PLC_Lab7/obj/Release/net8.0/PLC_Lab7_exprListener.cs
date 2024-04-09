@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from /home/zahry/school/pjp/project/PLC_Lab7/PLC_Lab7/PLC_Lab7_expr.g4 by ANTLR 4.6.6
+// Generated from C:\Users\zahry\pjp\project\PLC_Lab7\PLC_Lab7\PLC_Lab7_expr.g4 by ANTLR 4.6.6
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -32,56 +32,82 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IPLC_Lab7_exprListener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by the <c>math</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Enter a parse tree produced by the <c>assExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterMath([NotNull] PLC_Lab7_exprParser.MathContext context);
+	void EnterAssExpr([NotNull] PLC_Lab7_exprParser.AssExprContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>math</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Exit a parse tree produced by the <c>assExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitMath([NotNull] PLC_Lab7_exprParser.MathContext context);
+	void ExitAssExpr([NotNull] PLC_Lab7_exprParser.AssExprContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>ass</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Enter a parse tree produced by the <c>assTail</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterAss([NotNull] PLC_Lab7_exprParser.AssContext context);
+	void EnterAssTail([NotNull] PLC_Lab7_exprParser.AssTailContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>ass</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Exit a parse tree produced by the <c>assTail</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignment"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitAss([NotNull] PLC_Lab7_exprParser.AssContext context);
+	void ExitAssTail([NotNull] PLC_Lab7_exprParser.AssTailContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>unar</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Enter a parse tree produced by the <c>orExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterUnar([NotNull] PLC_Lab7_exprParser.UnarContext context);
+	void EnterOrExpr([NotNull] PLC_Lab7_exprParser.OrExprContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>unar</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Exit a parse tree produced by the <c>orExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitUnar([NotNull] PLC_Lab7_exprParser.UnarContext context);
+	void ExitOrExpr([NotNull] PLC_Lab7_exprParser.OrExprContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>exprWrap</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Enter a parse tree produced by the <c>tailOr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context);
+	void EnterTailOr([NotNull] PLC_Lab7_exprParser.TailOrContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>exprWrap</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
+	/// Exit a parse tree produced by the <c>tailOr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathOr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context);
+	void ExitTailOr([NotNull] PLC_Lab7_exprParser.TailOrContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>andExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAndExpr([NotNull] PLC_Lab7_exprParser.AndExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>andExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAndExpr([NotNull] PLC_Lab7_exprParser.AndExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>tailAnd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTailAnd([NotNull] PLC_Lab7_exprParser.TailAndContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>tailAnd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTailAnd([NotNull] PLC_Lab7_exprParser.TailAndContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>identity</c>
@@ -149,6 +175,123 @@ public interface IPLC_Lab7_exprListener : IParseTreeListener {
 	void ExitStringVal([NotNull] PLC_Lab7_exprParser.StringValContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by the <c>addExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAdd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAddExpr([NotNull] PLC_Lab7_exprParser.AddExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>addExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAdd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAddExpr([NotNull] PLC_Lab7_exprParser.AddExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>tailAdd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAdd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTailAdd([NotNull] PLC_Lab7_exprParser.TailAddContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>tailAdd</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathAdd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTailAdd([NotNull] PLC_Lab7_exprParser.TailAddContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>mulExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMulExpr([NotNull] PLC_Lab7_exprParser.MulExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>mulExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMulExpr([NotNull] PLC_Lab7_exprParser.MulExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>tailMul</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTailMul([NotNull] PLC_Lab7_exprParser.TailMulContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>tailMul</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTailMul([NotNull] PLC_Lab7_exprParser.TailMulContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>cmpExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCmpExpr([NotNull] PLC_Lab7_exprParser.CmpExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>cmpExpr</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCmpExpr([NotNull] PLC_Lab7_exprParser.CmpExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>cmpTail</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCmpTail([NotNull] PLC_Lab7_exprParser.CmpTailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>cmpTail</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCmpTail([NotNull] PLC_Lab7_exprParser.CmpTailContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>mathValue</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMathValue([NotNull] PLC_Lab7_exprParser.MathValueContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>mathValue</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMathValue([NotNull] PLC_Lab7_exprParser.MathValueContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>exprWrap</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>exprWrap</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitExprWrap([NotNull] PLC_Lab7_exprParser.ExprWrapContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>unar</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterUnar([NotNull] PLC_Lab7_exprParser.UnarContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>unar</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitUnar([NotNull] PLC_Lab7_exprParser.UnarContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.prog"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -169,6 +312,17 @@ public interface IPLC_Lab7_exprListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitStat([NotNull] PLC_Lab7_exprParser.StatContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.ternary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTernary([NotNull] PLC_Lab7_exprParser.TernaryContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.ternary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTernary([NotNull] PLC_Lab7_exprParser.TernaryContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.types"/>.
@@ -303,38 +457,170 @@ public interface IPLC_Lab7_exprListener : IParseTreeListener {
 	void ExitAssignment([NotNull] PLC_Lab7_exprParser.AssignmentContext context);
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.assignmentTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAssignmentTail([NotNull] PLC_Lab7_exprParser.AssignmentTailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.assignmentTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAssignmentTail([NotNull] PLC_Lab7_exprParser.AssignmentTailContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.mathOr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMathOr([NotNull] PLC_Lab7_exprParser.MathOrContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathOr"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMathOr([NotNull] PLC_Lab7_exprParser.MathOrContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.orTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterOrTail([NotNull] PLC_Lab7_exprParser.OrTailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.orTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitOrTail([NotNull] PLC_Lab7_exprParser.OrTailContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMathAnd([NotNull] PLC_Lab7_exprParser.MathAndContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathAnd"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMathAnd([NotNull] PLC_Lab7_exprParser.MathAndContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.andTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterAndTail([NotNull] PLC_Lab7_exprParser.AndTailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.andTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitAndTail([NotNull] PLC_Lab7_exprParser.AndTailContext context);
+
+	/// <summary>
 	/// Enter a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.exprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignmentassignmentmathOrmathOrmathAndmathAndvaluesvaluesvaluesvaluesvaluesmathAddmathAddmathMulmathMulmathCmpmathCmptailtailtail"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void EnterValues([NotNull] PLC_Lab7_exprParser.ValuesContext context);
 	/// <summary>
 	/// Exit a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.exprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.assignmentassignmentmathOrmathOrmathAndmathAndvaluesvaluesvaluesvaluesvaluesmathAddmathAddmathMulmathMulmathCmpmathCmptailtailtail"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitValues([NotNull] PLC_Lab7_exprParser.ValuesContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.operation"/>.
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.mathAdd"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterOperation([NotNull] PLC_Lab7_exprParser.OperationContext context);
+	void EnterMathAdd([NotNull] PLC_Lab7_exprParser.MathAddContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.operation"/>.
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathAdd"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitOperation([NotNull] PLC_Lab7_exprParser.OperationContext context);
+	void ExitMathAdd([NotNull] PLC_Lab7_exprParser.MathAddContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.addTail"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterOperator([NotNull] PLC_Lab7_exprParser.OperatorContext context);
+	void EnterAddTail([NotNull] PLC_Lab7_exprParser.AddTailContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.operator"/>.
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.addTail"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitOperator([NotNull] PLC_Lab7_exprParser.OperatorContext context);
+	void ExitAddTail([NotNull] PLC_Lab7_exprParser.AddTailContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMathMul([NotNull] PLC_Lab7_exprParser.MathMulContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathMul"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMathMul([NotNull] PLC_Lab7_exprParser.MathMulContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.mulTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMulTail([NotNull] PLC_Lab7_exprParser.MulTailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.mulTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMulTail([NotNull] PLC_Lab7_exprParser.MulTailContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMathCmp([NotNull] PLC_Lab7_exprParser.MathCmpContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathCmp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMathCmp([NotNull] PLC_Lab7_exprParser.MathCmpContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.compTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterCompTail([NotNull] PLC_Lab7_exprParser.CompTailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.compTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitCompTail([NotNull] PLC_Lab7_exprParser.CompTailContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.mathRel"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterMathRel([NotNull] PLC_Lab7_exprParser.MathRelContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.mathRel"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitMathRel([NotNull] PLC_Lab7_exprParser.MathRelContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.relTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterRelTail([NotNull] PLC_Lab7_exprParser.RelTailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.relTail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitRelTail([NotNull] PLC_Lab7_exprParser.RelTailContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterTail([NotNull] PLC_Lab7_exprParser.TailContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="PLC_Lab7_exprParser.tail"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitTail([NotNull] PLC_Lab7_exprParser.TailContext context);
 }
 } // namespace PLC_Lab7
