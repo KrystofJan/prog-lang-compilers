@@ -13,11 +13,7 @@ stat:
 	| statwrap
 	| if
 	| while
-	| for
-	| ternary;
-
-ternary: 
-    cond '?' expr ':' expr;
+	| for ;
 
 types: 	
 	dtype ID (',' ID)* ;
@@ -35,32 +31,34 @@ statwrap:
 	'{' stat (stat)* '}';
 
 if: 	
-	'if' cond stat ('else' stat)? ;
-
-cond:
-	   '(' expr ')'
-	 | expr;
-
+	'if' expr stat ('else' stat)? ;
 
 while: 	
-	'while' cond stat;
+	'while' expr stat;
 
 for: 
-    'for' '(' expr  ';' cond ';' expr ')' stat ;
-
-expr: 	  
-	  assignment  
-    ; 
+    'for' '(' expr  ';' expr ';' expr ')' stat ;
 
 unary:
 	NEG_OP expr | UN_MIN expr;
 
+expr: 	  
+      assignment; 
+
 assignment: 
-	ID ASSIGN assignment  # assExpr
+	  ID ASSIGN assignment  # assExpr
 	| assignmentTail    #assTail
 	;
 
 assignmentTail: 
+    tail
+    | ternary;
+
+ternary: 
+    <assoc=right> ternaryTail '?' ternaryTail ':' ternaryTail    # mathTern
+    | ternaryTail                          # tailTern
+;
+ternaryTail:
     tail
     | mathOr;
 

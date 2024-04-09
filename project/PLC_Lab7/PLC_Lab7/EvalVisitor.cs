@@ -28,7 +28,7 @@ namespace PLC_Lab7 {
 		}
 		
 		public override Variable VisitBooleanVal([NotNull] PLC_Lab7_exprParser.BooleanValContext context) {
-			return new Variable(Type.BOOL, context.BOOL().GetText());
+			return new Variable(Type.BOOL, context.BOOL().Symbol.Text == "true" );
 		}
 
 		public override Variable VisitIdentity([NotNull] PLC_Lab7_exprParser.IdentityContext context) {
@@ -156,38 +156,42 @@ namespace PLC_Lab7 {
 			return lhs;
 		}
 
-		public override Variable VisitCond([NotNull] PLC_Lab7_exprParser.CondContext context) {
-			Variable cond = Visit(context.expr());
+		// public override Variable VisitCond([NotNull] PLC_Lab7_exprParser.ExprContext context) {
+		// 	Variable cond = Visit(context.assignment());
+		//
+		// 	if (cond.Type != Type.BOOL) {
+		// 		Errors.ReportError(context.Start, $"Condition has to be of type bool, now is: {cond.Type}");
+		// 		return new Error(0);
+		// 	}
+		//
+		// 	return new Variable(Type.BOOL, cond.Value == (object) 0);
+		// }
+
+		public override Variable VisitMathTern([NotNull] PLC_Lab7_exprParser.MathTernContext context) {
+			Variable cond = Visit(context.ternaryTail()[0]);
+			Variable truthy = Visit(context.ternaryTail()[1]);
+			Variable falsy = Visit(context.ternaryTail()[1]);
 
 			if (cond.Type != Type.BOOL) {
-				Errors.ReportError(context.Start, $"Condition has to be of type bool, now is: {cond.Type}");
+				Errors.ReportError(context.Start, $"COndition must be boolean: {cond.Type}" );
 				return new Error(0);
 			}
-
-			return cond;
-		}
-
-		public override Variable VisitTernary([NotNull] PLC_Lab7_exprParser.TernaryContext context) {
-			Variable cond = Visit(context.cond());
-			Variable truthy = Visit(context.expr()[0]);
-			Variable falsy = Visit(context.expr()[1]);
-
 			if (truthy.Type != falsy.Type) {
 				if (truthy.Type == Type.FLOAT) {
 					// pretypovat	
 					falsy.Type = Type.FLOAT;
-					falsy.Value = (float) falsy.Value;
+					falsy.Value = float.Parse(truthy.Value.ToString());
 				}
-				else if (truthy.Type == Type.FLOAT) {
+				else if (falsy.Type == Type.FLOAT) {
 					truthy.Type = Type.FLOAT;
-					truthy.Value = (float) truthy.Value;
+					truthy.Value = float.Parse(truthy.Value.ToString());
 				}
 				else {
 					Errors.ReportError(context.Start, $"Ternary branches have to match type! true branch: {truthy.Type} false branch: {falsy.Type}" );
 					return new Error(0);
 				}
 			}
-			return (bool.Parse(cond.Value)) ? truthy : falsy;
+			return (cond.Value == (object) true) ? truthy : falsy;
 		}
 
 		// public override Variable VisitUnary([NotNull] PLC_Lab7_exprParser.UnaryContext context) {
