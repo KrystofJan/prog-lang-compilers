@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Antlr4.Runtime.Tree;
@@ -31,6 +32,15 @@ namespace PLC_Lab7 {
 		}
 
 		public override Variable VisitIdentity([NotNull] PLC_Lab7_exprParser.IdentityContext context) {
+			var sym = context.ID().Symbol;
+			
+			if (sym.Text == "true") {
+				return new Variable(Type.BOOL, true);
+			}
+			
+			if (sym.Text == "false") {
+				return new Variable(Type.BOOL, false);
+			}
 			return SymbolTable[context.ID().Symbol];
 		}
 
@@ -121,6 +131,50 @@ namespace PLC_Lab7 {
 			Errors.ReportError(context.Start, $"Literally impossible lol");
 			return new Error(0);
 		}
+
+		public override Variable VisitMathAnd([NotNull] PLC_Lab7_exprParser.MathAndContext context) {
+			Variable lhs = Visit(context.values());
+			Variable rhs = Visit(context.expr());
+
+			if (lhs.Type != Type.BOOL || rhs.Type != Type.BOOL) {
+				Errors.ReportError(context.Start, $"Both sides of && operator have to be of type Bool. Left is: {lhs.Type}. Right is: {rhs.Type}");
+				return new Error(0);
+			}
+
+			return lhs;
+		}
 		
+		public override Variable VisitMathOr([NotNull] PLC_Lab7_exprParser.MathOrContext context) {
+			Variable lhs = Visit(context.values());
+			Variable rhs = Visit(context.expr());
+
+			if (lhs.Type != Type.BOOL || rhs.Type != Type.BOOL) {
+				Errors.ReportError(context.Start, $"Both sides of && operator have to be of type Bool. Left is: {lhs.Type}. Right is: {rhs.Type}");
+				return new Error(0);
+			}
+
+			return lhs;
+		}
+
+		public override Variable VisitCond([NotNull] PLC_Lab7_exprParser.CondContext context) {
+			Variable cond = Visit(context.expr());
+
+			if (cond.Type != Type.BOOL) {
+				Errors.ReportError(context.Start, $"Condition has to be of type bool, now is: {cond.Type}");
+				return new Error(0);
+			}
+
+			return cond;
+		}
+
+		public override Variable VisitUnary([NotNull] PLC_Lab7_exprParser.UnaryContext context) {
+			Variable expr = Visit(context.expr());
+			if (expr.Type != Type.INT && expr.Type == Type.FLOAT) {
+				Errors.ReportError(context.Start, $"Unary has to be of type int or float and is {expr.Type}");
+				return new Error(0);
+			}
+
+			return expr;
+		}
 	}
 }
