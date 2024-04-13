@@ -13,33 +13,33 @@ public class EvalListener : PLC_Lab7_exprBaseListener {
 
 	public SymbolTable SymbolTable = new SymbolTable();
 
-	public override void ExitDecleration([NotNull] PLC_Lab7_exprParser.DeclerationContext context) {
-		Type t;
-		switch (context.dtype().GetText().ToLower()) {
-			case "int": {
-				t = Type.INT;
-				break;
-			}
-			case "float": {
-				t = Type.FLOAT;
-				break;
-			}
-			case "bool": {
-				t = Type.BOOL;
-				break;
-			}
-			case "string": {
-				t = Type.STRING;
-				break;
-			}
-			default: {
-				t = Type.ERROR;
-				break;
-			}
-		}
-
-		foreach (var terminalNode in context.ID()) {
-			SymbolTable.Add(terminalNode.Symbol, t);
-		}
-	}
+	// public override void ExitDecleration([NotNull] PLC_Lab7_exprParser.DeclerationContext context) {
+	// 	Type t;
+	// 	switch (context.dtype().GetText().ToLower()) {
+	// 		case "int": {
+	// 			t = Type.INT;
+	// 			break;
+	// 		}
+	// 		case "float": {
+	// 			t = Type.FLOAT;
+	// 			break;
+	// 		}
+	// 		case "bool": {
+	// 			t = Type.BOOL;
+	// 			break;
+	// 		}
+	// 		case "string": {
+	// 			t = Type.STRING;
+	// 			break;
+	// 		}
+	// 		default: {
+	// 			t = Type.ERROR;
+	// 			break;
+	// 		}
+	// 	}
+	//
+	// 	foreach (var terminalNode in context.ID()) {
+	// 		SymbolTable.Add(terminalNode.Symbol, t);
+	// 	}
+	// }
 }

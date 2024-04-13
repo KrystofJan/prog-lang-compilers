@@ -188,17 +188,17 @@ public interface IPLC_Lab7_exprListener : IParseTreeListener {
 	void ExitBolDtype([NotNull] PLC_Lab7_exprParser.BolDtypeContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>srtDtype</c>
+	/// Enter a parse tree produced by the <c>strDtype</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterSrtDtype([NotNull] PLC_Lab7_exprParser.SrtDtypeContext context);
+	void EnterStrDtype([NotNull] PLC_Lab7_exprParser.StrDtypeContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>srtDtype</c>
+	/// Exit a parse tree produced by the <c>strDtype</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitSrtDtype([NotNull] PLC_Lab7_exprParser.SrtDtypeContext context);
+	void ExitStrDtype([NotNull] PLC_Lab7_exprParser.StrDtypeContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>exprPrimary</c>
@@ -227,17 +227,17 @@ public interface IPLC_Lab7_exprListener : IParseTreeListener {
 	void ExitUnaryMin([NotNull] PLC_Lab7_exprParser.UnaryMinContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>uneryNeg</c>
+	/// Enter a parse tree produced by the <c>unaryNeg</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterUneryNeg([NotNull] PLC_Lab7_exprParser.UneryNegContext context);
+	void EnterUnaryNeg([NotNull] PLC_Lab7_exprParser.UnaryNegContext context);
 	/// <summary>
-	/// Exit a parse tree produced by the <c>uneryNeg</c>
+	/// Exit a parse tree produced by the <c>unaryNeg</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitUneryNeg([NotNull] PLC_Lab7_exprParser.UneryNegContext context);
+	void ExitUnaryNeg([NotNull] PLC_Lab7_exprParser.UnaryNegContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>exprMul</c>
@@ -342,6 +342,32 @@ public interface IPLC_Lab7_exprListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitExprAss([NotNull] PLC_Lab7_exprParser.ExprAssContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>primaryWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterPrimaryWrapped([NotNull] PLC_Lab7_exprParser.PrimaryWrappedContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>primaryWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitPrimaryWrapped([NotNull] PLC_Lab7_exprParser.PrimaryWrappedContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>primaryValues</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterPrimaryValues([NotNull] PLC_Lab7_exprParser.PrimaryValuesContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>primaryValues</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitPrimaryValues([NotNull] PLC_Lab7_exprParser.PrimaryValuesContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>integerVal</c>
@@ -542,13 +568,13 @@ public interface IPLC_Lab7_exprListener : IParseTreeListener {
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprprimaryprimaryvaluesvaluesvaluesvaluesvalues"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void EnterValues([NotNull] PLC_Lab7_exprParser.ValuesContext context);
 	/// <summary>
 	/// Exit a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprprimaryprimaryvaluesvaluesvaluesvaluesvalues"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitValues([NotNull] PLC_Lab7_exprParser.ValuesContext context);

@@ -33,9 +33,12 @@ namespace PLC_Lab7
                 EvalListener el = new EvalListener();
                 walker.Walk(el, tree);
                 
-                new EvalVisitor(el.SymbolTable).Visit(tree);
-                
+                EvalVisitor visitor = new EvalVisitor(el.SymbolTable);
+                (Type Type, InstructionStack instructionStack) myTyple = visitor.Visit(tree);
                 Errors.PrintAndClearErrors();
+
+
+                Console.Write(myTyple.instructionStack.ToString());
             }
         }
     }

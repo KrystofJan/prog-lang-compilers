@@ -23,7 +23,7 @@ dtype:
 	'int'       # intDtype  
 	| 'float'   # fltDtype
 	| 'bool'    # bolDtype
-	| 'string'  # srtDtype 
+	| 'string'  # strDtype 
     ;
 
 read: 	
@@ -45,22 +45,23 @@ for:
     'for' '(' expr  ';' expr ';' expr ')' stat ;
 
 expr:
-      primary                                               # exprPrimary             
-     | UN_MIN expr                                          # unaryMin
-     | NEG_OP expr                                          # uneryNeg
-     | expr op=(MUL_OP | DIV_OP | MOD_OP) expr              # exprMul
-     | expr op=(ADD_OP | MIN_OP | CONCAT_OP) expr           # exprAdd
-     | expr op=(CMP_LT | CMP_GT) expr                       # exprRl
-     | expr op=(EQ | NEQ) expr                              # exprCmp
-     | expr op=LOG_AND expr                                 # exprAnd
-     | expr op=LOG_OR expr                                  # exprOr
-     | <assoc = right> cond=expr op=QUES tb=expr COLON fb=expr   # exprTernar
-     | <assoc = right> expr op=ASSIGN expr                  # exprAss
+      primary (expr)*                                           # exprPrimary             
+     | UN_MIN expr                                              # unaryMin
+     | NEG_OP expr                                              # unaryNeg
+     | expr op=(MUL_OP | DIV_OP | MOD_OP) expr                  # exprMul
+     | expr op=(ADD_OP | MIN_OP | CONCAT_OP) expr               # exprAdd
+     | expr op=(CMP_LT | CMP_GT) expr                           # exprRl
+     | expr op=(EQ | NEQ) expr                                  # exprCmp
+     | expr op=LOG_AND expr                                     # exprAnd
+     | expr op=LOG_OR expr                                      # exprOr
+     | <assoc = right> cond=expr op=QUES tb=expr COLON fb=expr  # exprTernar
+     | <assoc = right> ID op=ASSIGN expr                        # exprAss
      ;
 
 primary:
-    '(' expr ')'
-    | values;
+    '(' expr ')'    # primaryWrapped
+    | values        # primaryValues
+    ;   
 
 values: 
   	INT         # integerVal

@@ -129,12 +129,12 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitBolDtype([NotNull] PLC_Lab7_exprParser.BolDtypeContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>srtDtype</c>
+	/// Visit a parse tree produced by the <c>strDtype</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitSrtDtype([NotNull] PLC_Lab7_exprParser.SrtDtypeContext context);
+	Result VisitStrDtype([NotNull] PLC_Lab7_exprParser.StrDtypeContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>exprPrimary</c>
@@ -153,12 +153,12 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitUnaryMin([NotNull] PLC_Lab7_exprParser.UnaryMinContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>uneryNeg</c>
+	/// Visit a parse tree produced by the <c>unaryNeg</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitUneryNeg([NotNull] PLC_Lab7_exprParser.UneryNegContext context);
+	Result VisitUnaryNeg([NotNull] PLC_Lab7_exprParser.UnaryNegContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>exprMul</c>
@@ -223,6 +223,22 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitExprAss([NotNull] PLC_Lab7_exprParser.ExprAssContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primaryWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrimaryWrapped([NotNull] PLC_Lab7_exprParser.PrimaryWrappedContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primaryValues</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitPrimaryValues([NotNull] PLC_Lab7_exprParser.PrimaryValuesContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>integerVal</c>
@@ -350,7 +366,7 @@ public interface IPLC_Lab7_exprVisitor<Result> : IParseTreeVisitor<Result> {
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprprimaryprimaryvaluesvaluesvaluesvaluesvalues"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>

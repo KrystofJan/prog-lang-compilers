@@ -179,7 +179,7 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	public virtual Result VisitBolDtype([NotNull] PLC_Lab7_exprParser.BolDtypeContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>srtDtype</c>
+	/// Visit a parse tree produced by the <c>strDtype</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.dtype"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -188,7 +188,7 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitSrtDtype([NotNull] PLC_Lab7_exprParser.SrtDtypeContext context) { return VisitChildren(context); }
+	public virtual Result VisitStrDtype([NotNull] PLC_Lab7_exprParser.StrDtypeContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>exprPrimary</c>
@@ -215,7 +215,7 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	public virtual Result VisitUnaryMin([NotNull] PLC_Lab7_exprParser.UnaryMinContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>uneryNeg</c>
+	/// Visit a parse tree produced by the <c>unaryNeg</c>
 	/// labeled alternative in <see cref="PLC_Lab7_exprParser.expr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -224,7 +224,7 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitUneryNeg([NotNull] PLC_Lab7_exprParser.UneryNegContext context) { return VisitChildren(context); }
+	public virtual Result VisitUnaryNeg([NotNull] PLC_Lab7_exprParser.UnaryNegContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>exprMul</c>
@@ -321,6 +321,30 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	public virtual Result VisitExprAss([NotNull] PLC_Lab7_exprParser.ExprAssContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primaryWrapped</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitPrimaryWrapped([NotNull] PLC_Lab7_exprParser.PrimaryWrappedContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>primaryValues</c>
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.primary"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitPrimaryValues([NotNull] PLC_Lab7_exprParser.PrimaryValuesContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>integerVal</c>
@@ -516,7 +540,7 @@ public partial class PLC_Lab7_exprBaseVisitor<Result> : AbstractParseTreeVisitor
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>values</c>
-	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprvaluesvaluesvaluesvaluesvalues"/>.
+	/// labeled alternative in <see cref="PLC_Lab7_exprParser.statstatstatstatstatstatstatstatstatdtypedtypedtypedtypeexprexprexprexprexprexprexprexprexprexprexprprimaryprimaryvaluesvaluesvaluesvaluesvalues"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
