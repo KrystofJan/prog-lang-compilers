@@ -5,21 +5,26 @@ prog:
 	(stat)+;
 
 stat: 	
-	  ';'
-	| types ';'
-	| expr ';'
-	| read ';'
-	| write ';'
-	| statwrap
-	| if
-	| while
-	| for ;
+	  ';'               # sem
+	| decleration ';'   # decl
+	| expr ';'          # exp
+	| read ';'          # rd
+	| write ';'         # wr
+	| statwrap          # scoped
+	| if                # ifstat
+	| while             # whilecyc
+	| for               # forcyc
+	;
 
-types: 	
+decleration: 	
 	dtype ID (',' ID)* ;
 	
 dtype: 	
-	'int' | 'float' | 'bool' | 'string';
+	'int'       # intDtype  
+	| 'float'   # fltDtype
+	| 'bool'    # bolDtype
+	| 'string'  # srtDtype 
+    ;
 
 read: 	
 	'read' ID (',' ID)* ;
@@ -39,100 +44,31 @@ while:
 for: 
     'for' '(' expr  ';' expr ';' expr ')' stat ;
 
-unary:
-	NEG_OP expr | UN_MIN expr;
+expr:
+      primary                                               # exprPrimary             
+     | UN_MIN expr                                          # unaryMin
+     | NEG_OP expr                                          # uneryNeg
+     | expr op=(MUL_OP | DIV_OP | MOD_OP) expr              # exprMul
+     | expr op=(ADD_OP | MIN_OP | CONCAT_OP) expr           # exprAdd
+     | expr op=(CMP_LT | CMP_GT) expr                       # exprRl
+     | expr op=(EQ | NEQ) expr                              # exprCmp
+     | expr op=LOG_AND expr                                 # exprAnd
+     | expr op=LOG_OR expr                                  # exprOr
+     | <assoc = right> cond=expr op=QUES tb=expr COLON fb=expr   # exprTernar
+     | <assoc = right> expr op=ASSIGN expr                  # exprAss
+     ;
 
-expr: 	  
-      assignment; 
+primary:
+    '(' expr ')'
+    | values;
 
-assignment: 
-	  ID ASSIGN assignment  # assExpr
-	| assignmentTail    #assTail
-	;
-
-assignmentTail: 
-    tail
-    | ternary;
-
-ternary: 
-    <assoc=right> ternaryTail '?' ternaryTail ':' ternaryTail    # mathTern
-    | ternaryTail                          # tailTern
-;
-ternaryTail:
-    tail
-    | mathOr;
-
-mathOr: 
-    mathOr LOG_OR orTail    # orExpr
-    | orTail                #tailOr
-    ;
-
-orTail:
-    tail 
-    | mathAnd;
-
-mathAnd:
-    mathAnd LOG_AND andTail # andExpr
-    | andTail               # tailAnd
-    ;
-
-andTail: 
-    tail
-    | mathRel;
-    
 values: 
-	  ID    # identity
-  	| INT   # integerVal
-  	| FLOAT # floatVal
-  	| BOOL  # booleanVal
-  	| STRING # stringVal
-  	;
-
-mathAdd: 
-      mathAdd op=(ADD_OP | MIN_OP | CONCAT_OP) addTail  # addExpr
-    | addTail                                           # tailAdd
-    ;
-
-addTail: 
-    tail
-    | mathMul
-    ;
-
-mathMul: 
-    mathMul op=(	MUL_OP | DIV_OP | MOD_OP) mulTail   # mulExpr
-    | mulTail                                           # tailMul
-    ;
-
-mulTail:
-    tail;
-    
-
-mathCmp: 
-    mathCmp op=(EQ | NEQ) compTail   # cmpExpr
-    | compTail                      # cmpTail
-    ;
-    
-compTail: 
-    tail
-    | mathRel
-    ;
-
-mathRel: 
-    mathRel op=(CMP_LT | CMP_MT) relTail
-    | relTail
-    ;
-
-relTail: 
-    tail
-    | mathAdd
-    ;   
-
-tail:       
-    values          # mathValue
-    | '(' expr ')'  # exprWrap
-    | unary         # unar
-    ;
-    
+  	INT         # integerVal
+  	| FLOAT     # floatVal
+  	| BOOL      # booleanVal
+  	| STRING    # stringVal
+	| ID        # identity
+  	;    
 
 // matches
 ID : [a-zA-Z][a-zA-Z0-9_]* ;        // match identifiers
@@ -142,12 +78,12 @@ FLOAT : [1-9][0-9]*'.'[0-9]* ;  // match float
 STRING : '"'[a-zA-Z0-9_.+/*,'@&%=(!){[\]};<>: -]*'"' ; // match string
 WS : [ \t\r\n]+ -> skip ;   // toss out whitespace
 
-// operators
+// Symbols
 ASSIGN: 	    '=';
 UN_MIN: 	    '-';
 NEG_OP: 	    '!';
 CMP_LT:         '<';
-CMP_MT:         '>';
+CMP_GT:         '>';
 ADD_OP:         '+';
 MIN_OP:         '-';
 CONCAT_OP:      '.';
@@ -158,18 +94,5 @@ LOG_OR:     	'||';
 LOG_AND: 	    '&&';
 EQ:             '==';
 NEQ:            '!=';
-
-
-// symbols
-//PLUS: 	    '+';
-//CONCAT:     '.';
-//EQ: 	    '=';
-//EMP: 	    '&';
-//MOD: 	    '%';
-//MUL: 	    '*';
-//MIN:        '-';
-//CMP_LESS: 	'<';
-//CMP_MORE: 	'>';
-//PIPE: 	    '|';
-//NEG: 	    '!';
-//DIV:        '/';
+QUES:           '?';
+COLON:          ':';

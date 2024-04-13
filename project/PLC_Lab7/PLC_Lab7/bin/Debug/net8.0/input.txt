@@ -1,21 +1,15 @@
-﻿write "<Testing errors>";
+﻿int a,b;
+a = b = 15;
+a + b;
+a % b;
+float c;
+c = a + b;
+c + a;
+a = c;
+c + 1.1;
+c % a;
+bool isDifferent;
+isDifferent = false;
 
-write "4) mod used with float";
-write "20 mod 3.0: ", 20 % 3.0;
-
-write "8) assignment of float to int";
-int x;
-x = 13.25;
-write "x=13.25: ", x;
-
-write "12) . only for strings";
-write "abc+10: ", "abc". 10;
-
-write "15) multiple declarations";
-float x;
-
-write "18) missing declaration";
-y = 10;
-
-write "21) + wont work with strings";
-write "x+y", "x"+"y";
+int d;
+d = isDifferent ? 1 : 0 ;

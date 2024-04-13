@@ -14,7 +14,12 @@ namespace PLC_Lab7 {
 		public EvalVisitor(SymbolTable symbolTable) {
 			SymbolTable = symbolTable;
 		}
-		
+
+		private Variable parseToFloat(Variable val) {
+			val.Type = Type.FLOAT;
+			val.Value = float.Parse(val.Value.ToString());
+			return val;
+		}
 		public override Variable VisitIntegerVal([NotNull] PLC_Lab7_exprParser.IntegerValContext context) {
 			return new Variable(Type.INT, int.Parse(context.INT().GetText()));
 		}
@@ -44,19 +49,25 @@ namespace PLC_Lab7 {
 			return SymbolTable[context.ID().Symbol];
 		}
 
-		public override Variable VisitAssExpr([NotNull] PLC_Lab7_exprParser.AssExprContext context) {
-			Variable lhs = SymbolTable[context.ID().Symbol];
-			Variable rhs = Visit(context.assignment());
+		public override Variable VisitExprAss([NotNull] PLC_Lab7_exprParser.ExprAssContext context) {
+			Variable lhs = Visit(context.expr()[0]);
+			Variable rhs = Visit(context.expr()[1]);
+
+			if (lhs.Type == Type.FLOAT && rhs.Type == Type.INT)
+			{
+				return lhs;
+			}
+
 			if (rhs.Type != lhs.Type) {
-				Errors.ReportError(context.Start, $"Right side has different type than {context.ID().GetText()}. Left side is {lhs.Type.ToString()}. Right side is {rhs.Type.ToString()}.");
+				Errors.ReportError(context.Start, $"Right side has different type than {rhs.Type.ToString()}. Left side is {lhs.Type.ToString()}. Right side is {rhs.Type.ToString()}.");
 				return new Error(0);
 			}
 			return lhs;
 		}
 
-		public override Variable VisitAddExpr([NotNull] PLC_Lab7_exprParser.AddExprContext context) {
-			Variable lhs = Visit(context.mathAdd());
-			Variable rhs = Visit(context.addTail());
+		public override Variable VisitExprAdd([NotNull] PLC_Lab7_exprParser.ExprAddContext context) {
+			Variable lhs = Visit(context.expr()[0]);
+			Variable rhs = Visit(context.expr()[1]);
 
 			if (context.op.Type == PLC_Lab7_exprParser.CONCAT_OP) {
 				if (lhs.Type != Type.STRING && rhs.Type != Type.STRING) {
@@ -91,9 +102,9 @@ namespace PLC_Lab7 {
 			return new Error(0);
 		}
 
-		public override Variable VisitMulExpr([NotNull] PLC_Lab7_exprParser.MulExprContext context) {
-			Variable lhs = Visit(context.mathMul());
-			Variable rhs = Visit(context.mulTail());
+		public override Variable VisitExprMul([NotNull] PLC_Lab7_exprParser.ExprMulContext context) {
+			Variable lhs = Visit(context.expr()[0]);
+			Variable rhs = Visit(context.expr()[1]);
 
 			if (context.op.Type == PLC_Lab7_exprParser.MOD_OP) {
 				if (lhs.Type != rhs.Type) {
@@ -117,9 +128,8 @@ namespace PLC_Lab7 {
 						return lhs;
 					}
 				}
-				if (lhs.Type == Type.INT && rhs.Type == Type.FLOAT)
-				{
-					return rhs;
+				if (lhs.Type == Type.INT && rhs.Type == Type.FLOAT) {
+					return parseToFloat(lhs);
 				}
 				if (lhs.Type == Type.FLOAT && rhs.Type == Type.INT)
 				{
@@ -132,9 +142,9 @@ namespace PLC_Lab7 {
 			return new Error(0);
 		}
 
-		public override Variable VisitAndExpr([NotNull] PLC_Lab7_exprParser.AndExprContext context) {
-			Variable lhs = Visit(context.mathAnd());
-			Variable rhs = Visit(context.andTail());
+		public override Variable VisitExprAnd([NotNull] PLC_Lab7_exprParser.ExprAndContext context) {
+			Variable lhs = Visit(context.expr()[0]);
+			Variable rhs = Visit(context.expr()[1]);
 
 			if (lhs.Type != Type.BOOL || rhs.Type != Type.BOOL) {
 				Errors.ReportError(context.Start, $"Both sides of && operator have to be of type Bool. Left is: {lhs.Type}. Right is: {rhs.Type}");
@@ -144,9 +154,9 @@ namespace PLC_Lab7 {
 			return lhs;
 		}
 		
-		public override Variable VisitOrExpr([NotNull] PLC_Lab7_exprParser.OrExprContext context) {
-			Variable lhs = Visit(context.mathOr());
-			Variable rhs = Visit(context.orTail());
+		public override Variable VisitExprOr([NotNull] PLC_Lab7_exprParser.ExprOrContext context) {
+			Variable lhs = Visit(context.expr()[0]);
+			Variable rhs = Visit(context.expr()[1]);
 
 			if (lhs.Type != Type.BOOL || rhs.Type != Type.BOOL) {
 				Errors.ReportError(context.Start, $"Both sides of && operator have to be of type Bool. Left is: {lhs.Type}. Right is: {rhs.Type}");
@@ -156,21 +166,10 @@ namespace PLC_Lab7 {
 			return lhs;
 		}
 
-		// public override Variable VisitCond([NotNull] PLC_Lab7_exprParser.ExprContext context) {
-		// 	Variable cond = Visit(context.assignment());
-		//
-		// 	if (cond.Type != Type.BOOL) {
-		// 		Errors.ReportError(context.Start, $"Condition has to be of type bool, now is: {cond.Type}");
-		// 		return new Error(0);
-		// 	}
-		//
-		// 	return new Variable(Type.BOOL, cond.Value == (object) 0);
-		// }
-
-		public override Variable VisitMathTern([NotNull] PLC_Lab7_exprParser.MathTernContext context) {
-			Variable cond = Visit(context.ternaryTail()[0]);
-			Variable truthy = Visit(context.ternaryTail()[1]);
-			Variable falsy = Visit(context.ternaryTail()[1]);
+		public override Variable VisitExprTernar([NotNull] PLC_Lab7_exprParser.ExprTernarContext context) {
+			Variable cond = Visit(context.cond);
+			Variable truthy = Visit(context.tb);
+			Variable falsy = Visit(context.fb);
 
 			if (cond.Type != Type.BOOL) {
 				Errors.ReportError(context.Start, $"COndition must be boolean: {cond.Type}" );
@@ -179,12 +178,10 @@ namespace PLC_Lab7 {
 			if (truthy.Type != falsy.Type) {
 				if (truthy.Type == Type.FLOAT) {
 					// pretypovat	
-					falsy.Type = Type.FLOAT;
-					falsy.Value = float.Parse(truthy.Value.ToString());
+					falsy = parseToFloat(falsy);
 				}
 				else if (falsy.Type == Type.FLOAT) {
-					truthy.Type = Type.FLOAT;
-					truthy.Value = float.Parse(truthy.Value.ToString());
+					truthy = parseToFloat(truthy);
 				}
 				else {
 					Errors.ReportError(context.Start, $"Ternary branches have to match type! true branch: {truthy.Type} false branch: {falsy.Type}" );
