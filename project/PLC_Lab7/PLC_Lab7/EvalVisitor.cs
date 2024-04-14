@@ -3,24 +3,35 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using Antlr4.Runtime.Tree;
 
 namespace PLC_Lab7;
+
 public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack instStack)> {
 	private SymbolTable SymbolTable { get; set; }
+
+	private Dictionary<Type, object> TypeBaseValues = new Dictionary<Type, object>() {
+		{Type.INT, 0},
+		{Type.BOOL, false},
+		{Type.STRING, "\"\""},
+		{Type.FLOAT, float.Parse("0.0")}
+	};
 
 	public EvalVisitor(SymbolTable symbolTable) {
 		SymbolTable = symbolTable;
 	}
 
 	private int _counter = 0;
+
 	private int Counter() {
 		return ++_counter;
 	}
 
-	public override (Type type, InstructionStack instStack) VisitIntegerVal([NotNull] PLC_Lab7_exprParser.IntegerValContext context) {
+	public override (Type type, InstructionStack instStack) VisitIntegerVal(
+		[NotNull] PLC_Lab7_exprParser.IntegerValContext context) {
 		return (
 			Type.INT,
 			new InstructionStack(
@@ -33,7 +44,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitFloatVal([NotNull] PLC_Lab7_exprParser.FloatValContext context) {
+	public override (Type type, InstructionStack instStack) VisitFloatVal(
+		[NotNull] PLC_Lab7_exprParser.FloatValContext context) {
 		return (Type.FLOAT, new InstructionStack(
 			new Instruction {
 				InstructionType = InstructionTypes.PUSH,
@@ -43,7 +55,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		));
 	}
 
-	public override (Type type, InstructionStack instStack) VisitStringVal([NotNull] PLC_Lab7_exprParser.StringValContext context) {
+	public override (Type type, InstructionStack instStack) VisitStringVal(
+		[NotNull] PLC_Lab7_exprParser.StringValContext context) {
 		return (Type.STRING, new InstructionStack(
 			new Instruction {
 				InstructionType = InstructionTypes.PUSH,
@@ -53,7 +66,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		));
 	}
 
-	public override (Type type, InstructionStack instStack) VisitBooleanVal([NotNull] PLC_Lab7_exprParser.BooleanValContext context) {
+	public override (Type type, InstructionStack instStack) VisitBooleanVal(
+		[NotNull] PLC_Lab7_exprParser.BooleanValContext context) {
 		return (Type.BOOL, new InstructionStack(
 			new Instruction {
 				InstructionType = InstructionTypes.PUSH,
@@ -63,7 +77,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		));
 	}
 
-	public override (Type type, InstructionStack instStack) VisitIdentity([NotNull] PLC_Lab7_exprParser.IdentityContext context) {
+	public override (Type type, InstructionStack instStack) VisitIdentity(
+		[NotNull] PLC_Lab7_exprParser.IdentityContext context) {
 		var sym = context.ID().Symbol;
 
 		if (sym.Text == "true") {
@@ -95,7 +110,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		));
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExprAss([NotNull] PLC_Lab7_exprParser.ExprAssContext context) {
+	public override (Type type, InstructionStack instStack) VisitExprAss(
+		[NotNull] PLC_Lab7_exprParser.ExprAssContext context) {
 		var lhs = SymbolTable[context.ID().Symbol];
 		var rhs = Visit(context.expr());
 		InstructionStack instructionStack = new InstructionStack(rhs.instStack);
@@ -124,7 +140,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (lhs.Type, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExprAdd([NotNull] PLC_Lab7_exprParser.ExprAddContext context) {
+	public override (Type type, InstructionStack instStack) VisitExprAdd(
+		[NotNull] PLC_Lab7_exprParser.ExprAddContext context) {
 		var lhs = Visit(context.expr()[0]);
 		var rhs = Visit(context.expr()[1]);
 
@@ -155,6 +172,9 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 					});
 					return (lhs.type, instructionStack);
 				}
+
+				Errors.ReportError(context.Start,
+					$"ThisSomeBuiishit");
 				return (Type.ERROR, new InstructionStack());
 			}
 
@@ -186,22 +206,25 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 			Errors.ReportError(context.Start,
 				$"Both + or - operators should be either INT or FLOAT type. Left is: {lhs.type}. Right is: {rhs.type}");
-			return new (Type.ERROR, new InstructionStack());
+			return new(Type.ERROR, new InstructionStack());
 		}
 
 		Errors.ReportError(context.Start, $"Actually impossible lol");
-		return new (Type.ERROR, new InstructionStack());
+		return new(Type.ERROR, new InstructionStack());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitPrimaryWrapped([NotNull] PLC_Lab7_exprParser.PrimaryWrappedContext context) {
+	public override (Type type, InstructionStack instStack) VisitPrimaryWrapped(
+		[NotNull] PLC_Lab7_exprParser.PrimaryWrappedContext context) {
 		return Visit(context.expr());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitPrimaryValues([NotNull] PLC_Lab7_exprParser.PrimaryValuesContext context) {
+	public override (Type type, InstructionStack instStack) VisitPrimaryValues(
+		[NotNull] PLC_Lab7_exprParser.PrimaryValuesContext context) {
 		return Visit(context.values());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExprPrimary([NotNull] PLC_Lab7_exprParser.ExprPrimaryContext context) {
+	public override (Type type, InstructionStack instStack) VisitExprPrimary(
+		[NotNull] PLC_Lab7_exprParser.ExprPrimaryContext context) {
 		var primary = Visit(context.primary());
 		InstructionStack instructionStack = new InstructionStack(primary.instStack);
 		foreach (var expr in context.expr()) {
@@ -209,15 +232,17 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 			instructionStack.Push(expression.instStack);
 		}
 
-		return (Type.ERROR, instructionStack);
+		return (primary.type, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitUnaryNeg([NotNull] PLC_Lab7_exprParser.UnaryNegContext context) {
+	public override (Type type, InstructionStack instStack) VisitUnaryNeg(
+		[NotNull] PLC_Lab7_exprParser.UnaryNegContext context) {
 		var expr = Visit(context.expr());
 		if (expr.type != Type.BOOL) {
 			// error
 			return (Type.ERROR, new InstructionStack());
 		}
+
 		InstructionStack instructionStack = new InstructionStack();
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.NOT
@@ -226,12 +251,14 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (expr.type, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitUnaryMin([NotNull] PLC_Lab7_exprParser.UnaryMinContext context) {
+	public override (Type type, InstructionStack instStack) VisitUnaryMin(
+		[NotNull] PLC_Lab7_exprParser.UnaryMinContext context) {
 		var expr = Visit(context.expr());
 		if (expr.type != Type.INT || expr.type != Type.FLOAT) {
 			// error
 			return (Type.ERROR, new InstructionStack());
 		}
+
 		InstructionStack instructionStack = new InstructionStack();
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.UMINUS
@@ -240,7 +267,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (expr.type, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExprRl([NotNull] PLC_Lab7_exprParser.ExprRlContext context) {
+	public override (Type type, InstructionStack instStack) VisitExprRl(
+		[NotNull] PLC_Lab7_exprParser.ExprRlContext context) {
 		var lhs = Visit(context.expr()[0]);
 		var rhs = Visit(context.expr()[1]);
 
@@ -254,8 +282,9 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 							? InstructionTypes.GT
 							: InstructionTypes.LT
 					});
-					return (lhs.type, instructionStack);
+					return (Type.BOOL, instructionStack);
 				}
+
 				return (Type.ERROR, new InstructionStack());
 			}
 
@@ -287,18 +316,20 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 			Errors.ReportError(context.Start,
 				$"Both + or - operators should be either INT or FLOAT type. Left is: {lhs.type}. Right is: {rhs.type}");
-			return new (Type.ERROR, new InstructionStack());
+			return new(Type.ERROR, new InstructionStack());
 		}
 
 		Errors.ReportError(context.Start, $"Actually impossible lol");
-		return new (Type.ERROR, new InstructionStack());
+		return new(Type.ERROR, new InstructionStack());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitScoped([NotNull] PLC_Lab7_exprParser.ScopedContext context) {
+	public override (Type type, InstructionStack instStack) VisitScoped(
+		[NotNull] PLC_Lab7_exprParser.ScopedContext context) {
 		return Visit(context.statwrap());
 	}
-	
-	public override (Type type, InstructionStack instStack) VisitStatwrap([NotNull] PLC_Lab7_exprParser.StatwrapContext context) {
+
+	public override (Type type, InstructionStack instStack) VisitStatwrap(
+		[NotNull] PLC_Lab7_exprParser.StatwrapContext context) {
 		InstructionStack instructionStack = new InstructionStack();
 		var stats = context.stat();
 		for (int i = 0; i < stats.Length; ++i) {
@@ -309,14 +340,17 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (Type.ERROR, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExp([NotNull] PLC_Lab7_exprParser.ExpContext context) {
+	public override (Type type, InstructionStack instStack) VisitExp(
+		[NotNull] PLC_Lab7_exprParser.ExpContext context) {
 		return Visit(context.expr());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitIf([NotNull] PLC_Lab7_exprParser.IfContext context) {
+	public override (Type type, InstructionStack instStack) VisitIf(
+		[NotNull] PLC_Lab7_exprParser.IfContext context) {
 		var cond = Visit(context.expr());
 		if (cond.type != Type.BOOL) {
-			// error
+			Errors.ReportError(context.Start,
+				$"COndition in if statement has to return type Bool bu returns {cond.type}");
 			return (Type.ERROR, new InstructionStack());
 		}
 
@@ -326,23 +360,23 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		if (stats.Length > 1) {
 			elseScope = Visit(stats[1]);
 		}
-		
+
 
 		int false_branch = Counter();
 		int true_branch = Counter();
-		
+
 		InstructionStack instructionStack = new InstructionStack(cond.instStack);
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.FJMP,
 			Value = false_branch
 		});
 		instructionStack.Push(ifScope.instStack);
-		
+
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.JMP,
 			Value = true_branch
 		});
-		
+
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.LABEL,
 			Value = false_branch
@@ -359,7 +393,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (Type.ERROR, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitProg([NotNull] PLC_Lab7_exprParser.ProgContext context) {
+	public override (Type type, InstructionStack instStack) VisitProg(
+		[NotNull] PLC_Lab7_exprParser.ProgContext context) {
 		InstructionStack instructionStack = new InstructionStack();
 		foreach (var stat in context.stat()) {
 			var statCont = Visit(stat);
@@ -368,11 +403,12 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 		return (Type.ERROR, instructionStack);
 	}
-	
-	public override (Type type, InstructionStack instStack) VisitWhile([NotNull] PLC_Lab7_exprParser.WhileContext context) {
+
+	public override (Type type, InstructionStack instStack) VisitWhile(
+		[NotNull] PLC_Lab7_exprParser.WhileContext context) {
 		var cond = Visit(context.expr());
 		var cyc = Visit(context.stat());
-		
+
 		int cmpBranch = Counter();
 		int continueBranch = Counter();
 		InstructionStack instructionStack = new InstructionStack();
@@ -397,8 +433,9 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 		return (Type.ERROR, instructionStack);
 	}
-	
-	public override (Type type, InstructionStack instStack) VisitExprCmp([NotNull] PLC_Lab7_exprParser.ExprCmpContext context) {
+
+	public override (Type type, InstructionStack instStack) VisitExprCmp(
+		[NotNull] PLC_Lab7_exprParser.ExprCmpContext context) {
 		var lhs = Visit(context.expr()[0]);
 		var rhs = Visit(context.expr()[1]);
 
@@ -411,21 +448,24 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 						InstructionType = InstructionTypes.NOT
 					});
 				}
+
 				instructionStack.Push(new Instruction {
 					InstructionType = InstructionTypes.EQ
 				});
 				return (lhs.type, instructionStack);
 			}
+
 			Errors.ReportError(context.Start,
 				$"Both + or - operators should be either INT or FLOAT type. Left is: {lhs.type}. Right is: {rhs.type}");
-			return new (Type.ERROR, new InstructionStack());
+			return new(Type.ERROR, new InstructionStack());
 		}
 
 		Errors.ReportError(context.Start, $"Actually impossible lol");
-		return new (Type.ERROR, new InstructionStack());
+		return new(Type.ERROR, new InstructionStack());
 	}
-	
-	public override (Type type, InstructionStack instStack) VisitExprMul([NotNull] PLC_Lab7_exprParser.ExprMulContext context) {
+
+	public override (Type type, InstructionStack instStack) VisitExprMul(
+		[NotNull] PLC_Lab7_exprParser.ExprMulContext context) {
 		var lhs = Visit(context.expr()[0]);
 		var rhs = Visit(context.expr()[1]);
 		InstructionStack instructionStack = new InstructionStack(rhs.instStack);
@@ -434,14 +474,15 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 			if (lhs.type != rhs.type) {
 				Errors.ReportError(context.Start,
 					$"Modulo has to have both types be the same. Left is: {lhs.type} and the right is: {rhs.type}");
-				return new (Type.ERROR, new InstructionStack());
+				return new(Type.ERROR, new InstructionStack());
 			}
 
 			if (lhs.type != Type.INT || rhs.type != Type.INT) {
 				Errors.ReportError(context.Start,
 					$"Modulo operators should be INT type. Left is: {lhs.type}. Right is: {rhs.type}");
-				return new (Type.ERROR, new InstructionStack());
+				return new(Type.ERROR, new InstructionStack());
 			}
+
 			instructionStack.Push(lhs.instStack);
 			instructionStack.Push(new Instruction {
 				InstructionType = InstructionTypes.MOD
@@ -497,7 +538,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (Type.ERROR, new InstructionStack());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExprAnd([NotNull] PLC_Lab7_exprParser.ExprAndContext context) {
+	public override (Type type, InstructionStack instStack) VisitExprAnd(
+		[NotNull] PLC_Lab7_exprParser.ExprAndContext context) {
 		var lhs = Visit(context.expr()[0]);
 		var rhs = Visit(context.expr()[1]);
 
@@ -506,15 +548,17 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				$"Both sides of && operator have to be of type Bool. Left is: {lhs.type}. Right is: {rhs.type}");
 			return (Type.ERROR, new InstructionStack());
 		}
+
 		InstructionStack instructionStack = new InstructionStack(lhs.instStack);
-		instructionStack.Push(rhs.instStack);	
+		instructionStack.Push(rhs.instStack);
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.AND
 		});
 		return (Type.BOOL, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExprOr([NotNull] PLC_Lab7_exprParser.ExprOrContext context) {
+	public override (Type type, InstructionStack instStack) VisitExprOr(
+		[NotNull] PLC_Lab7_exprParser.ExprOrContext context) {
 		var lhs = Visit(context.expr()[0]);
 		var rhs = Visit(context.expr()[1]);
 
@@ -533,17 +577,18 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (Type.BOOL, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitExprTernar([NotNull] PLC_Lab7_exprParser.ExprTernarContext context) {
+	public override (Type type, InstructionStack instStack) VisitExprTernar(
+		[NotNull] PLC_Lab7_exprParser.ExprTernarContext context) {
 		var cond = Visit(context.cond);
 		var truthy = Visit(context.tb);
 		var falsy = Visit(context.fb);
 		InstructionStack instructionStack = new InstructionStack(cond.instStack);
-		
+
 		if (cond.type != Type.BOOL) {
 			Errors.ReportError(context.Start, $"Condition must be boolean: {cond.type}");
 			return (Type.ERROR, new InstructionStack());
 		}
-		
+
 		instructionStack.Push(truthy.instStack);
 
 		if (truthy.type != falsy.type) {
@@ -559,6 +604,7 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				});
 				return (truthy.type, instructionStack);
 			}
+
 			if (falsy.type == Type.FLOAT) {
 				instructionStack.Push(falsy.instStack);
 				instructionStack.Push(new Instruction {
@@ -571,6 +617,7 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				});
 				return (truthy.type, instructionStack);
 			}
+
 			Errors.ReportError(context.Start,
 				$"Ternary branches have to match type! true branch: {truthy.type} false branch: {falsy.type}");
 			return (Type.ERROR, new InstructionStack());
@@ -581,14 +628,16 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (Type.ERROR, new InstructionStack());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitDecleration([NotNull] PLC_Lab7_exprParser.DeclerationContext context) {
+	public override (Type type, InstructionStack instStack) VisitDecleration(
+		[NotNull] PLC_Lab7_exprParser.DeclerationContext context) {
 		var dtype = Visit(context.dtype());
 		InstructionStack instructionStack = new InstructionStack();
 		foreach (var id in context.ID()) {
 			SymbolTable.Add(id.Symbol, dtype.type);
 			instructionStack.Push(new Instruction {
 				InstructionType = InstructionTypes.PUSH,
-				Value = dtype.ToString()
+				Type = dtype.type,
+				Value = TypeBaseValues[dtype.type]
 			});
 			instructionStack.Push(new Instruction {
 				InstructionType = InstructionTypes.SAVE,
@@ -596,22 +645,37 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 			});
 		}
 
-		return (Type.ERROR, instructionStack);
+		var tmp = SymbolTable[context.ID()[0].Symbol];
+		return (tmp.Type, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitIntDtype([NotNull] PLC_Lab7_exprParser.IntDtypeContext context) {
+	public override (Type type, InstructionStack instStack) VisitIntDtype(
+		[NotNull] PLC_Lab7_exprParser.IntDtypeContext context) {
 		return (Type.INT, new InstructionStack());
 	}
-	
-	public override (Type type, InstructionStack instStack) VisitStrDtype([NotNull] PLC_Lab7_exprParser.StrDtypeContext context) {
+
+	public override (Type type, InstructionStack instStack) VisitIfstat(
+		[NotNull] PLC_Lab7_exprParser.IfstatContext context) {
+		return Visit(context.@if());
+	}
+
+	public override (Type type, InstructionStack instStack) VisitWhilecyc(
+		[NotNull] PLC_Lab7_exprParser.WhilecycContext context) {
+		return Visit(context.@while());
+	}
+
+	public override (Type type, InstructionStack instStack) VisitStrDtype(
+		[NotNull] PLC_Lab7_exprParser.StrDtypeContext context) {
 		return (Type.STRING, new InstructionStack());
 	}
-	
-	public override (Type type, InstructionStack instStack) VisitFltDtype([NotNull] PLC_Lab7_exprParser.FltDtypeContext context) {
+
+	public override (Type type, InstructionStack instStack) VisitFltDtype(
+		[NotNull] PLC_Lab7_exprParser.FltDtypeContext context) {
 		return (Type.FLOAT, new InstructionStack());
-	}	
-	
-	public override (Type type, InstructionStack instStack) VisitBolDtype([NotNull] PLC_Lab7_exprParser.BolDtypeContext context) {
+	}
+
+	public override (Type type, InstructionStack instStack) VisitBolDtype(
+		[NotNull] PLC_Lab7_exprParser.BolDtypeContext context) {
 		return (Type.BOOL, new InstructionStack());
 	}
 
@@ -619,15 +683,18 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (Type.ERROR, new InstructionStack());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitDecl([NotNull] PLC_Lab7_exprParser.DeclContext context) {
+	public override (Type type, InstructionStack instStack)VisitDecl(
+		[NotNull] PLC_Lab7_exprParser.DeclContext context) {
 		return Visit(context.decleration());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitRd([NotNull] PLC_Lab7_exprParser.RdContext context) {
+	public override (Type type, InstructionStack instStack) VisitRd(
+		[NotNull] PLC_Lab7_exprParser.RdContext context) {
 		return Visit(context.read());
 	}
 
-	public override (Type type, InstructionStack instStack) VisitRead([NotNull] PLC_Lab7_exprParser.ReadContext context) {
+	public override (Type type, InstructionStack instStack)VisitRead(
+		[NotNull] PLC_Lab7_exprParser.ReadContext context) {
 		var ids = context.ID();
 		InstructionStack instructionStack = new InstructionStack();
 		foreach (var id in ids) {
@@ -645,23 +712,25 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		return (Type.ERROR, instructionStack);
 	}
 
-	public override (Type type, InstructionStack instStack) VisitWr([NotNull] PLC_Lab7_exprParser.WrContext context) {
+	public override (Type type, InstructionStack instStack) VisitWr(
+		[NotNull] PLC_Lab7_exprParser.WrContext context) {
 		return Visit(context.write());
 	}
-	
-	public override (Type type, InstructionStack instStack) VisitWrite([NotNull] PLC_Lab7_exprParser.WriteContext context) {
+
+	public override (Type type, InstructionStack instStack) VisitWrite(
+		[NotNull] PLC_Lab7_exprParser.WriteContext context) {
 		var exprs = context.expr();
 		InstructionStack instructionStack = new InstructionStack();
-		
+
 		foreach (var expr in exprs) {
 			var tmp = Visit(expr);
 			instructionStack.Push(tmp.instStack);
 		}
+
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.PRINT,
 			Value = exprs.Length
 		});
 		return (Type.ERROR, instructionStack);
 	}
-	
 }

@@ -39,6 +39,8 @@ namespace PLC_Lab7
 
 
                 Console.Write(myTyple.instructionStack.ToString());
+                
+                File.WriteAllText("output.txt", myTyple.instructionStack.ToString());
             }
         }
     }

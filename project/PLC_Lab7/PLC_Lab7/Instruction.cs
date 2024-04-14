@@ -68,7 +68,7 @@ public class InstructionStack {
 		foreach (var instruction in Instructions) {
 			string iType = instruction.InstructionType;
 			string dType = instruction.Type.ToString();
-			string value = instruction.Value.ToString();
+			string value = (instruction.Value == null)? "": instruction.Value.ToString();
 
 			sb.AppendLine($"{iType}{" " + dType}{" " + value}");
 		}
