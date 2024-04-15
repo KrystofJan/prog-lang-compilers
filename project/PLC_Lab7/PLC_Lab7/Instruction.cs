@@ -11,24 +11,6 @@ public class Instruction {
 	public Type? Type { get; set; }
 	public object? Value { get; set; }
 	public string InstructionType { get; set; }
-
-	// public Instruction(string instructionType, Type type, object value) {
-	// 	InstructionType = instructionType;
-	// 	Value = value;
-	// 	Type = type;
-	// }
-	//
-	// public Instruction(string instructionType, Type type) {
-	// 	InstructionType = instructionType;
-	// 	Type = type;
-	// 	Value = null;
-	// }
-	//
-	// public Instruction(string instructionType) {
-	// 	InstructionType = instructionType;
-	// 	Value = null;
-	// 	Type = null;
-	// }
 }
 
 public class InstructionStack {
@@ -67,10 +49,10 @@ public class InstructionStack {
 		StringBuilder sb = new StringBuilder();
 		foreach (var instruction in Instructions) {
 			string iType = instruction.InstructionType;
-			string dType = instruction.Type.ToString();
+			string dType = instruction.Type == null? "" : instruction.Type.ToString();
 			string value = (instruction.Value == null)? "": instruction.Value.ToString();
 
-			sb.AppendLine($"{iType}{" " + dType}{" " + value}");
+			sb.AppendLine($"{iType.ToLower()}{(dType == "" ? dType : " " + dType[0])  }{(value == "" ? "" : " " + value)}");
 		}
 
 		return sb.ToString();

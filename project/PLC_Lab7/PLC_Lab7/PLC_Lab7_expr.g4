@@ -72,12 +72,13 @@ values:
   	;    
 
 // matches
-ID : [a-zA-Z][a-zA-Z0-9_]* ;        // match identifiers
-INT : [1-9][0-9]*|'0' ;          // match integers
-BOOL : 'true'|'false' ;          // match bool
-FLOAT : [1-9][0-9]*'.'[0-9]* ;  // match float
-STRING : '"'[a-zA-Z0-9_.+/*,'@&%=(!){[\]};<>: -]*'"' ; // match string
-WS : [ \t\r\n]+ -> skip ;   // toss out whitespace
+ID : [a-zA-Z][a-zA-Z0-9_]* ;
+INT : [1-9][0-9]*|'0' ;
+BOOL : 'true'|'false' ;
+FLOAT : [0-9]'.'[0-9]* | [1-9][0-9]*'.'[0-9]* ;
+STRING : '"'[a-zA-Z0-9_.+/*,'@&%=(!){[\]};<>: -]*'"' ;
+WS : [ \t\r\n]+ -> skip ;
+COMMENT: '//' .*? '\n' -> skip;
 
 // Symbols
 ASSIGN: 	    '=';

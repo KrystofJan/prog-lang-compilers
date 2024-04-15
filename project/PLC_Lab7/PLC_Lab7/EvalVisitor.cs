@@ -24,7 +24,7 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		SymbolTable = symbolTable;
 	}
 
-	private int _counter = 0;
+	private int _counter = -1;
 
 	private int Counter() {
 		return ++_counter;
@@ -136,7 +136,16 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				$"Right side has different type than {rhs.ToString()}. Left side is {lhs.Type.ToString()}. Right side is {rhs.type.ToString()}.");
 			return (Type.ERROR, new InstructionStack());
 		}
-
+		
+		instructionStack.Push(new Instruction {
+			InstructionType = InstructionTypes.SAVE,
+			Value = context.ID().GetText()
+		});
+		instructionStack.Push(new Instruction {
+			InstructionType = InstructionTypes.LOAD,
+			Value = context.ID().GetText()
+		});
+		
 		return (lhs.Type, instructionStack);
 	}
 
@@ -244,10 +253,10 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		}
 
 		InstructionStack instructionStack = new InstructionStack();
+		instructionStack.Push(expr.instStack);
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.NOT
 		});
-		instructionStack.Push(expr.instStack);
 		return (expr.type, instructionStack);
 	}
 
@@ -261,10 +270,10 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		}
 
 		InstructionStack instructionStack = new InstructionStack();
+		instructionStack.Push(expr.instStack);
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.UMINUS
 		});
-		instructionStack.Push(expr.instStack);
 		return (expr.type, instructionStack);
 	}
 
@@ -344,7 +353,13 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 	public override (Type type, InstructionStack instStack) VisitExp(
 		[NotNull] PLC_Lab7_exprParser.ExpContext context) {
-		return Visit(context.expr());
+		var expr = Visit(context.expr());
+		InstructionStack instructionStack = new InstructionStack(expr.instStack);
+		instructionStack.Push(new Instruction {
+			InstructionType = InstructionTypes.POP
+		});
+
+		return (expr.type, instructionStack);
 	}
 
 	public override (Type type, InstructionStack instStack) VisitIf(
@@ -368,7 +383,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 		int false_branch = Counter();
 		int true_branch = Counter();
-
+			
+		// investigate
 		InstructionStack instructionStack = new InstructionStack(cond.instStack);
 		instructionStack.Push(new Instruction {
 			InstructionType = InstructionTypes.FJMP,
@@ -456,7 +472,7 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				instructionStack.Push(new Instruction {
 					InstructionType = InstructionTypes.EQ
 				});
-				return (lhs.type, instructionStack);
+				return (Type.BOOL, instructionStack);
 			}
 
 			Errors.ReportError(context.Start,
@@ -472,7 +488,7 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		[NotNull] PLC_Lab7_exprParser.ExprMulContext context) {
 		var lhs = Visit(context.expr()[0]);
 		var rhs = Visit(context.expr()[1]);
-		InstructionStack instructionStack = new InstructionStack(rhs.instStack);
+		InstructionStack instructionStack = new InstructionStack(lhs.instStack);
 
 		if (context.op.Type == PLC_Lab7_exprParser.MOD_OP) {
 			if (lhs.type != rhs.type) {
@@ -487,7 +503,7 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				return new(Type.ERROR, new InstructionStack());
 			}
 
-			instructionStack.Push(lhs.instStack);
+			instructionStack.Push(rhs.instStack);
 			instructionStack.Push(new Instruction {
 				InstructionType = InstructionTypes.MOD
 			});

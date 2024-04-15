@@ -20,9 +20,8 @@ public class InstructionTypes {
 	public static readonly string LOAD = "LOAD";
 	public static readonly string SAVE = "SAVE";
 	public static readonly string LABEL = "LABEL";
-	public static readonly string JMP = "JPM";
+	public static readonly string JMP = "JMP";
 	public static readonly string FJMP = "FJMP";
 	public static readonly string PRINT = "PRINT";
 	public static readonly string READ = "READ";
-	
 }

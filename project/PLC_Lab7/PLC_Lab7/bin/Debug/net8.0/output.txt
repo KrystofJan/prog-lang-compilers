@@ -1,56 +1,65 @@
-PUSH INT 3
-PUSH INT 4
-LT  
-FJMP  1
-PUSH STRING "condition was true"
-PRINT  1
-JPM  2
-LABEL  1
-PUSH STRING "condition was false"
-PRINT  1
-LABEL  2
-PUSH BOOL True
-FJMP  3
-PUSH STRING "inside"
-PRINT  1
-PUSH STRING "second"
-PRINT  1
-PUSH STRING "if"
-PRINT  1
-JPM  4
-LABEL  3
-PUSH INT 0
-SAVE  a
-PUSH INT 0
-SAVE  b
-LABEL  5
-LOAD  a
-PUSH INT 10
-LT  
-FJMP  6
-PUSH STRING "a="
-LOAD  a
-PRINT  2
-LOAD  a
-PUSH INT 1
-ADD  
-JPM  5
-LABEL  6
-PUSH INT 0
-READ  INT
-SAVE  b
-LABEL  7
-LOAD  a
-LOAD  b
-LT  
-FJMP  8
-PUSH STRING "a="
-LOAD  a
-PUSH STRING ", b="
-LOAD  b
-PRINT  4
-LOAD  a
-PUSH INT 1
-ADD  
-JPM  7
-LABEL  8
+push I 3
+push I 4
+lt
+fjmp 0
+push S "condition was true"
+print 1
+jmp 1
+label 0
+push S "condition was false"
+print 1
+label 1
+push B True
+fjmp 2
+push S "inside"
+print 1
+push S "second"
+print 1
+push S "if"
+print 1
+jmp 3
+label 2
+push I 0
+save a
+push I 0
+save b
+label 4
+load a
+push I 10
+lt
+fjmp 5
+push S "a="
+load a
+print 2
+load a
+push I 1
+add
+save a
+load a
+pop
+jmp 4
+label 5
+push I 0
+save a
+load a
+pop
+read INT
+save b
+label 6
+load a
+load b
+lt
+fjmp 7
+push S "a="
+load a
+push S ", b="
+load b
+print 4
+load a
+push I 1
+add
+save a
+load a
+pop
+jmp 6
+label 7
