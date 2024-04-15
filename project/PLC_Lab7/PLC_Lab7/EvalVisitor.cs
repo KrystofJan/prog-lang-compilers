@@ -172,9 +172,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 					});
 					return (lhs.type, instructionStack);
 				}
-
 				Errors.ReportError(context.Start,
-					$"ThisSomeBuiishit");
+					$"Unparsable types. Left: {lhs.type.ToString()}. Right: {rhs.type.ToString()} ");
 				return (Type.ERROR, new InstructionStack());
 			}
 
@@ -239,7 +238,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		[NotNull] PLC_Lab7_exprParser.UnaryNegContext context) {
 		var expr = Visit(context.expr());
 		if (expr.type != Type.BOOL) {
-			// error
+			Errors.ReportError(context.Start,
+				$"Negation can only be used in Boolean type expression is of type {expr.type.ToString()}.");
 			return (Type.ERROR, new InstructionStack());
 		}
 
@@ -254,8 +254,9 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 	public override (Type type, InstructionStack instStack) VisitUnaryMin(
 		[NotNull] PLC_Lab7_exprParser.UnaryMinContext context) {
 		var expr = Visit(context.expr());
-		if (expr.type != Type.INT || expr.type != Type.FLOAT) {
-			// error
+		if (expr.type != Type.INT && expr.type != Type.FLOAT) {
+			Errors.ReportError(context.Start,
+			 	$"Unary minus has to be assigned to int or float values. expression is of type  {expr.type.ToString()} ");
 			return (Type.ERROR, new InstructionStack());
 		}
 
@@ -284,7 +285,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 					});
 					return (Type.BOOL, instructionStack);
 				}
-
+				Errors.ReportError(context.Start,
+					$"Unparsable type in rl expression. Left: {lhs.type.ToString()}. Right: {rhs.type.ToString()} ");
 				return (Type.ERROR, new InstructionStack());
 			}
 
@@ -349,6 +351,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 		[NotNull] PLC_Lab7_exprParser.IfContext context) {
 		var cond = Visit(context.expr());
 		if (cond.type != Type.BOOL) {
+			Errors.ReportError(context.Start,
+				$"If statement condition has to be of type Bool but is {cond.type.ToString()}.");
 			Errors.ReportError(context.Start,
 				$"COndition in if statement has to return type Bool bu returns {cond.type}");
 			return (Type.ERROR, new InstructionStack());
@@ -645,32 +649,19 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 			});
 		}
 
-		var tmp = SymbolTable[context.ID()[0].Symbol];
-		return (tmp.Type, instructionStack);
+		return (Type.ERROR, instructionStack);
 	}
 
 	public override (Type type, InstructionStack instStack) VisitIntDtype(
 		[NotNull] PLC_Lab7_exprParser.IntDtypeContext context) {
 		return (Type.INT, new InstructionStack());
 	}
-
-	public override (Type type, InstructionStack instStack) VisitIfstat(
-		[NotNull] PLC_Lab7_exprParser.IfstatContext context) {
-		return Visit(context.@if());
-	}
-
-	public override (Type type, InstructionStack instStack) VisitWhilecyc(
-		[NotNull] PLC_Lab7_exprParser.WhilecycContext context) {
-		return Visit(context.@while());
-	}
-
-	public override (Type type, InstructionStack instStack) VisitStrDtype(
-		[NotNull] PLC_Lab7_exprParser.StrDtypeContext context) {
+	
+	public override (Type type, InstructionStack instStack) VisitStrDtype([NotNull] PLC_Lab7_exprParser.StrDtypeContext context) {
 		return (Type.STRING, new InstructionStack());
 	}
-
-	public override (Type type, InstructionStack instStack) VisitFltDtype(
-		[NotNull] PLC_Lab7_exprParser.FltDtypeContext context) {
+	
+	public override (Type type, InstructionStack instStack) VisitFltDtype([NotNull] PLC_Lab7_exprParser.FltDtypeContext context) {
 		return (Type.FLOAT, new InstructionStack());
 	}
 

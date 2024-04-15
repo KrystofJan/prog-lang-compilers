@@ -4,20 +4,19 @@
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\zahry\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/zahry/.nuget/packages/</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/zahry/.nuget/packages/</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.8.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\zahry\.nuget\packages\" />
-    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+    <SourceRoot Include="/home/zahry/.nuget/packages/" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)antlr4.codegenerator\4.6.6\build\Antlr4.CodeGenerator.props" Condition="Exists('$(NuGetPackageRoot)antlr4.codegenerator\4.6.6\build\Antlr4.CodeGenerator.props')" />
+    <Import Project="$(NuGetPackageRoot)antlr4.codegenerator/4.6.6/build/Antlr4.CodeGenerator.props" Condition="Exists('$(NuGetPackageRoot)antlr4.codegenerator/4.6.6/build/Antlr4.CodeGenerator.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgAntlr4_CodeGenerator Condition=" '$(PkgAntlr4_CodeGenerator)' == '' ">C:\Users\zahry\.nuget\packages\antlr4.codegenerator\4.6.6</PkgAntlr4_CodeGenerator>
-    <PkgAntlr4 Condition=" '$(PkgAntlr4)' == '' ">C:\Users\zahry\.nuget\packages\antlr4\4.6.6</PkgAntlr4>
+    <PkgAntlr4_CodeGenerator Condition=" '$(PkgAntlr4_CodeGenerator)' == '' ">/home/zahry/.nuget/packages/antlr4.codegenerator/4.6.6</PkgAntlr4_CodeGenerator>
+    <PkgAntlr4 Condition=" '$(PkgAntlr4)' == '' ">/home/zahry/.nuget/packages/antlr4/4.6.6</PkgAntlr4>
   </PropertyGroup>
 </Project>
