@@ -1,0 +1,6 @@
+/home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/PatterLexer.cs
+/home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/PatterParser.cs
+/home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/PatterListener.cs
+/home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/PatterBaseListener.cs
+/home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/PatterVisitor.cs
+/home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/PatterBaseVisitor.cs

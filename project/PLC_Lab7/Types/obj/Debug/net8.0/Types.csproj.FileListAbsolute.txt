@@ -1,0 +1,13 @@
+/home/zahry/school/pjp/project/PLC_Lab7/Types/bin/Debug/net8.0/Types.deps.json
+/home/zahry/school/pjp/project/PLC_Lab7/Types/bin/Debug/net8.0/Types.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Types/bin/Debug/net8.0/Types.pdb
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.csproj.AssemblyReference.cache
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.GeneratedMSBuildEditorConfig.editorconfig
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.AssemblyInfoInputs.cache
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.AssemblyInfo.cs
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.csproj.CoreCompileInputs.cache
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.sourcelink.json
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/refint/Types.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/Types.pdb
+/home/zahry/school/pjp/project/PLC_Lab7/Types/obj/Debug/net8.0/ref/Types.dll

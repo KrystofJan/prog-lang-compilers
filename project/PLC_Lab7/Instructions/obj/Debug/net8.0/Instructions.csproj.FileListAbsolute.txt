@@ -1,0 +1,16 @@
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/bin/Debug/net8.0/Instructions.deps.json
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/bin/Debug/net8.0/Instructions.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/bin/Debug/net8.0/Instructions.pdb
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/bin/Debug/net8.0/Types.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/bin/Debug/net8.0/Types.pdb
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.csproj.AssemblyReference.cache
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.GeneratedMSBuildEditorConfig.editorconfig
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.AssemblyInfoInputs.cache
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.AssemblyInfo.cs
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.csproj.CoreCompileInputs.cache
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.sourcelink.json
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.csproj.CopyComplete
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/refint/Instructions.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/Instructions.pdb
+/home/zahry/school/pjp/project/PLC_Lab7/Instructions/obj/Debug/net8.0/ref/Instructions.dll
