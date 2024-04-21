@@ -20,3 +20,9 @@
 /home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/obj/Debug/net8.0/VirtualMachine.pdb
 /home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/obj/Debug/net8.0/VirtualMachine.genruntimeconfig.cache
 /home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/obj/Debug/net8.0/ref/VirtualMachine.dll
+/home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/bin/Debug/net8.0/Compiler.deps.json
+/home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/bin/Debug/net8.0/Compiler.runtimeconfig.json
+/home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/bin/Debug/net8.0/Compiler
+/home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/bin/Debug/net8.0/bin/Debug/net8.0/input.pat
+/home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/bin/Debug/net8.0/Compiler.dll
+/home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/bin/Debug/net8.0/Compiler.pdb

@@ -1,4 +1,4 @@
-﻿if (3<4) write "condition was true";
+if (3<4) write "condition was true";
 else write "condition was false";
 
 if (true) {

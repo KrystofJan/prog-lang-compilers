@@ -4,6 +4,78 @@
     "/home/zahry/school/pjp/project/PLC_Lab7/VirtualMachine/VirtualMachine.csproj": {}
   },
   "projects": {
+    "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/Compiler.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/Compiler.csproj",
+        "projectName": "Compiler",
+        "projectPath": "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/Compiler.csproj",
+        "packagesPath": "/home/zahry/.nuget/packages/",
+        "outputPath": "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/zahry/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/zahry/school/pjp/project/PLC_Lab7/Instructions/Instructions.csproj": {
+                "projectPath": "/home/zahry/school/pjp/project/PLC_Lab7/Instructions/Instructions.csproj"
+              },
+              "/home/zahry/school/pjp/project/PLC_Lab7/Types/Types.csproj": {
+                "projectPath": "/home/zahry/school/pjp/project/PLC_Lab7/Types/Types.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Antlr4": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.6.6, )"
+            },
+            "Antlr4.Runtime": {
+              "target": "Package",
+              "version": "[4.6.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/zahry/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/zahry/school/pjp/project/PLC_Lab7/Instructions/Instructions.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -148,6 +220,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/Compiler.csproj": {
+                "projectPath": "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/Compiler.csproj"
+              },
               "/home/zahry/school/pjp/project/PLC_Lab7/Instructions/Instructions.csproj": {
                 "projectPath": "/home/zahry/school/pjp/project/PLC_Lab7/Instructions/Instructions.csproj"
               }

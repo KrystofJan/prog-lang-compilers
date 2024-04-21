@@ -1181,6 +1181,21 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Compiler/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Antlr4.Runtime": "4.6.6",
+          "Instructions": "1.0.0",
+          "Types": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Compiler.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Compiler.dll": {}
+        }
+      },
       "Instructions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4302,6 +4317,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Compiler/1.0.0": {
+      "type": "project",
+      "path": "../Compiler/Compiler.csproj",
+      "msbuildProject": "../Compiler/Compiler.csproj"
+    },
     "Instructions/1.0.0": {
       "type": "project",
       "path": "../Instructions/Instructions.csproj",
@@ -4315,6 +4335,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Compiler >= 1.0.0",
       "Instructions >= 1.0.0"
     ]
   },
@@ -4343,6 +4364,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/Compiler.csproj": {
+              "projectPath": "/home/zahry/school/pjp/project/PLC_Lab7/Compiler/Compiler.csproj"
+            },
             "/home/zahry/school/pjp/project/PLC_Lab7/Instructions/Instructions.csproj": {
               "projectPath": "/home/zahry/school/pjp/project/PLC_Lab7/Instructions/Instructions.csproj"
             }

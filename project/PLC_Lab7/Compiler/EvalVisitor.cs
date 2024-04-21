@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Antlr4.Runtime.Tree;
 using Instructions;
 using Types;
+using Type = Types.Type;
 
 namespace Compiler;
 

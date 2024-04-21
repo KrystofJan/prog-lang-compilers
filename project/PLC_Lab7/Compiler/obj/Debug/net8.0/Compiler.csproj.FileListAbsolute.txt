@@ -12,7 +12,6 @@
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/Compiler.csproj.CoreCompileInputs.cache
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/Compiler.sourcelink.json
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/bin/Debug/net8.0/Compiler
-/home/zahry/school/pjp/project/PLC_Lab7/Compiler/bin/Debug/net8.0/input.txt
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/bin/Debug/net8.0/Compiler.deps.json
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/bin/Debug/net8.0/Compiler.runtimeconfig.json
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/bin/Debug/net8.0/Compiler.dll
@@ -28,3 +27,4 @@
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/Compiler.pdb
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/Compiler.genruntimeconfig.cache
 /home/zahry/school/pjp/project/PLC_Lab7/Compiler/obj/Debug/net8.0/ref/Compiler.dll
+/home/zahry/school/pjp/project/PLC_Lab7/Compiler/bin/Debug/net8.0/bin/Debug/net8.0/input.pat

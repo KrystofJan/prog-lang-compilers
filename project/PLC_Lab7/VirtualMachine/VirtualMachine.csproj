@@ -8,11 +8,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Compiler\Compiler.csproj" />
       <ProjectReference Include="..\Instructions\Instructions.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="obj\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="bin\Debug\net8.0\input.vmc" />
     </ItemGroup>
 
 </Project>

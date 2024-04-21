@@ -16,12 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="input.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Include="obj\Debug\net8.0\PatterBaseVisitor.cs" />
   </ItemGroup>
 
@@ -33,6 +27,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Instructions\Instructions.csproj" />
     <ProjectReference Include="..\Types\Types.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\input.pat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

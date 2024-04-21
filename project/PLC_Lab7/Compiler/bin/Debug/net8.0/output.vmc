@@ -1,0 +1,28 @@
+push I 0
+save a
+push I 0
+save b
+push I 0
+save a
+load a
+pop
+read INT
+save b
+label 0
+load a
+load b
+lt
+fjmp 1
+push S "a="
+load a
+push S ", b="
+load b
+print 4
+load a
+push I 1
+add I
+save a
+load a
+pop
+jmp 0
+label 1

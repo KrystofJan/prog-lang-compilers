@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Types", "Types\Types.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualMachine", "VirtualMachine\VirtualMachine.csproj", "{358B082F-03CD-4B59-8380-640337A3DAED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Executor", "Executor\Executor.csproj", "{4FBAEB28-5307-482B-8713-EBEE53FE35A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{358B082F-03CD-4B59-8380-640337A3DAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{358B082F-03CD-4B59-8380-640337A3DAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{358B082F-03CD-4B59-8380-640337A3DAED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FBAEB28-5307-482B-8713-EBEE53FE35A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FBAEB28-5307-482B-8713-EBEE53FE35A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FBAEB28-5307-482B-8713-EBEE53FE35A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FBAEB28-5307-482B-8713-EBEE53FE35A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
