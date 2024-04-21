@@ -164,7 +164,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 			InstructionStack instructionStack = new InstructionStack(lhs.instStack);
 			instructionStack.Push(rhs.instStack);
 			instructionStack.Push(new Instruction {
-				InstructionType = InstructionTypes.CONCAT
+				InstructionType = InstructionTypes.CONCAT,
+				Type = Type.STRING
 			});
 			return (Type.STRING, instructionStack);
 		}
@@ -177,7 +178,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 					instructionStack.Push(new Instruction {
 						InstructionType = (context.op.Type == PLC_Lab7_exprParser.ADD_OP)
 							? InstructionTypes.ADD
-							: InstructionTypes.SUB
+							: InstructionTypes.SUB,
+						Type = lhs.type
 					});
 					return (lhs.type, instructionStack);
 				}
@@ -194,7 +196,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				instructionStack.Push(new Instruction {
 					InstructionType = (context.op.Type == PLC_Lab7_exprParser.ADD_OP)
 						? InstructionTypes.ADD
-						: InstructionTypes.SUB
+						: InstructionTypes.SUB,
+					Type = rhs.type
 				});
 				return (rhs.type, instructionStack);
 			}
@@ -207,7 +210,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				instructionStack.Push(new Instruction {
 					InstructionType = (context.op.Type == PLC_Lab7_exprParser.ADD_OP)
 						? InstructionTypes.ADD
-						: InstructionTypes.SUB
+						: InstructionTypes.SUB,
+					Type = lhs.type
 				});
 				return (rhs.type, instructionStack);
 			}
@@ -268,7 +272,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 			 	$"Unary minus has to be assigned to int or float values. expression is of type  {expr.type.ToString()} ");
 			return (Type.ERROR, new InstructionStack());
 		}
-
+        // TODO: Investigate -> Dont know why, but when I have a wrapped expression unary minus has more priority
+        // than Minus
 		InstructionStack instructionStack = new InstructionStack();
 		instructionStack.Push(expr.instStack);
 		instructionStack.Push(new Instruction {
@@ -404,11 +409,11 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 		if (stats.Length > 1) {
 			instructionStack.Push(elseScope.instStack);
-			instructionStack.Push(new Instruction {
-				InstructionType = InstructionTypes.LABEL,
-				Value = true_branch
-			});
 		}
+		instructionStack.Push(new Instruction {
+			InstructionType = InstructionTypes.LABEL,
+			Value = true_branch
+		});
 
 		return (Type.ERROR, instructionStack);
 	}
@@ -463,15 +468,14 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 			InstructionStack instructionStack = new InstructionStack(lhs.instStack);
 			if (lhs.type == rhs.type) {
 				instructionStack.Push(rhs.instStack);
+				instructionStack.Push(new Instruction {
+					InstructionType = InstructionTypes.EQ
+				});
 				if (context.op.Type == PLC_Lab7_exprParser.NEQ) {
 					instructionStack.Push(new Instruction {
 						InstructionType = InstructionTypes.NOT
 					});
 				}
-
-				instructionStack.Push(new Instruction {
-					InstructionType = InstructionTypes.EQ
-				});
 				return (Type.BOOL, instructionStack);
 			}
 
@@ -505,7 +509,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 
 			instructionStack.Push(rhs.instStack);
 			instructionStack.Push(new Instruction {
-				InstructionType = InstructionTypes.MOD
+				InstructionType = InstructionTypes.MOD,
+				Type = lhs.type
 			});
 			return (lhs.type, instructionStack);
 		}
@@ -517,7 +522,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 					instructionStack.Push(new Instruction {
 						InstructionType = (context.op.Type == PLC_Lab7_exprParser.MUL_OP)
 							? InstructionTypes.MUL
-							: InstructionTypes.DIV
+							: InstructionTypes.DIV,
+						Type = lhs.type
 					});
 					return (lhs.type, instructionStack);
 				}
@@ -531,7 +537,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				instructionStack.Push(new Instruction {
 					InstructionType = (context.op.Type == PLC_Lab7_exprParser.MUL_OP)
 						? InstructionTypes.MUL
-						: InstructionTypes.DIV
+						: InstructionTypes.DIV,
+					Type = rhs.type
 				});
 				return (rhs.type, instructionStack);
 			}
@@ -544,7 +551,8 @@ public class EvalVisitor : PLC_Lab7_exprBaseVisitor<(Type type, InstructionStack
 				instructionStack.Push(new Instruction {
 					InstructionType = (context.op.Type == PLC_Lab7_exprParser.MUL_OP)
 						? InstructionTypes.MUL
-						: InstructionTypes.DIV
+						: InstructionTypes.DIV,
+					Type = lhs.type
 				});
 				return (lhs.type, instructionStack);
 			}

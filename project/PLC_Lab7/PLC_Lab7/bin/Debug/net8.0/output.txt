@@ -19,6 +19,7 @@ push S "if"
 print 1
 jmp 3
 label 2
+label 3
 push I 0
 save a
 push I 0
@@ -33,7 +34,7 @@ load a
 print 2
 load a
 push I 1
-add
+add I
 save a
 load a
 pop
@@ -57,7 +58,7 @@ load b
 print 4
 load a
 push I 1
-add
+add I
 save a
 load a
 pop
